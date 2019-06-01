@@ -7,13 +7,13 @@ import {User} from '../Model/User';
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
-  protected rootURL: string = environment.rootUrl + '/user';
-
-  constructor(private http: HttpClient) {
+export class UserService extends MainService {
+  constructor(http: HttpClient) {
+    super(http);
+    this.rootURL += '/user';
   }
 
-  get(token: string) {
-    return this.http.get<User>(`${this.rootURL}/${token}`);
+  get() {
+    return this.http.get<User>(`${this.rootURL}`, {headers: this.headers});
   }
 }
