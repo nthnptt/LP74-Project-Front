@@ -52,6 +52,8 @@ export default class UserSession {
   }
 
   remove() {
+    this.token = null;
+    this.connected = false;
     Cookie.remove('version');
     Cookie.remove('token');
   }
