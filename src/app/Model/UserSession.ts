@@ -50,4 +50,9 @@ export default class UserSession {
     Cookie.set('version', environment.cookieVersion);
     Cookie.set('token', this.token);
   }
+
+  remove() {
+    Cookie.remove('version');
+    Cookie.remove('token');
+  }
 }
