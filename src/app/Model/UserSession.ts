@@ -2,12 +2,12 @@ import * as Cookie from 'js-cookie';
 import {environment} from '../../environments/environment';
 
 export default class UserSession {
-  public connected: boolean;
   protected constructor() {
     this.token = null;
   }
 
   static session: UserSession;
+  public connected: boolean;
 
   private token: string;
 
