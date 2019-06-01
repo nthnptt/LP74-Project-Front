@@ -1,5 +1,6 @@
 import * as Cookie from 'js-cookie';
 import {environment} from '../../environments/environment';
+import {User} from './User';
 
 export default class UserSession {
   protected constructor() {
@@ -8,7 +9,7 @@ export default class UserSession {
 
   static session: UserSession;
   public connected: boolean;
-
+  private user: User;
   private token: string;
 
   static get(): UserSession {
@@ -16,7 +17,6 @@ export default class UserSession {
       UserSession.session = new UserSession();
       try {
         UserSession.session.load();
-        UserSession.session.connected = true;
       } catch (e) {
         UserSession.session.connected = false;
       }
@@ -56,5 +56,20 @@ export default class UserSession {
     this.connected = false;
     Cookie.remove('version');
     Cookie.remove('token');
+  }
+
+  setUser(u: User): UserSession {
+    this.user = u;
+    this.connected = true;
+    return this;
+  }
+
+  getUser(): User {
+    return this.user;
+  }
+
+  disconnected() {
+    this.user = null;
+    this.connected = false;
   }
 }

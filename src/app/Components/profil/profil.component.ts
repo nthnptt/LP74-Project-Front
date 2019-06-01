@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {UserService} from '../../Services/user.service';
 import {HttpClient} from '@angular/common/http';
 import {User} from '../../Model/User';
+import UserSession from '../../Model/UserSession';
 
 @Component({
   selector: 'app-profil',
@@ -11,15 +12,13 @@ import {User} from '../../Model/User';
 export class ProfilComponent implements OnInit {
   private service: UserService;
   public user: User;
+
   constructor(http: HttpClient) {
     this.service = new UserService(http);
-    this.user = {name: 'Disconnected'};
+    this.user = UserSession.get().getUser();
   }
 
   ngOnInit() {
-    this.service.get().subscribe((e: User) => {
-      this.user = e;
-    });
   }
 
 }

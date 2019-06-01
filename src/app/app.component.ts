@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import UserSession from './Model/UserSession';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +9,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'LP74-front';
+  constructor(router: Router) {
+    const session = UserSession.get();
+    if (session.getToken()) {
+      router.navigate(['/getprofil']);
+    } else {
+      router.navigate(['/auth']);
+    }
+  }
 }
