@@ -13,7 +13,7 @@ export abstract class MainService {
 
   protected constructor(protected http: HttpClient) {
     this.session = UserSession.get();
-    this.session.setToken('5dfds4545ds');
+    this.session.setToken('546qsdqs');
     this.headers = new HttpHeaders({
       'Content-type': 'application/json; charset=utf-8',
       Authorization: this.session.getToken()

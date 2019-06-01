@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  rootUrl: 'http://localhost:3000'
+  rootUrl: 'http://localhost:3000',
+  cookieVersion: '1.0'
 };
 
 /*
