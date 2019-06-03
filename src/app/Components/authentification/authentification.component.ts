@@ -11,12 +11,18 @@ import UserSession from '../../Model/UserSession';
   styleUrls: ['./authentification.component.css']
 })
 export class AuthentificationComponent implements OnInit {
-
+  public test: string;
   constructor() {
 
   }
 
   ngOnInit() {
+    UserSession.get().remove();
   }
 
+  setCookie() {
+    UserSession.get().setToken(this.test);
+    document.location.reload();
+
+  }
 }

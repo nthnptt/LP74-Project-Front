@@ -13,11 +13,14 @@ import {HttpClient} from '@angular/common/http';
 export class GetProfilComponent implements OnInit {
 
   constructor(router: Router, http: HttpClient) {
-    const service = new UserService(http);
-    service.get().subscribe((u: User) => {
-      UserSession.get().setUser(u);
-      router.navigate(['profil']);
-    });
+    // const service = new UserService(http);
+    // service.get().subscribe((u: User) => {
+    //   UserSession.get().setUser(u);
+    //   router.navigate(['profil']);
+    // });
+
+    UserSession.get().setUser({name: UserSession.get().getToken()});
+    router.navigate(['profil']);
   }
 
   ngOnInit() {

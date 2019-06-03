@@ -71,5 +71,6 @@ export default class UserSession {
   disconnected() {
     this.user = null;
     this.connected = false;
+    this.remove();
   }
 }

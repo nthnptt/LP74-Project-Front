@@ -21,4 +21,8 @@ export class ProfilComponent implements OnInit {
   ngOnInit() {
   }
 
+  rmvCook() {
+    UserSession.get().disconnected();
+    document.location.reload();
+  }
 }
