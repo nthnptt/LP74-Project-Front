@@ -1,6 +1,13 @@
-<div class="main container">
-  <div class="forms row justify-content-center align-items-center">
-    <app-register class="col-7"></app-register>
+<div class="main container-fluid">
+  <div [ngStyle]="{'transform': 'translateX(' + step + ')'}" class="forms row align-items-center">
+    <app-register class="col-4"></app-register>
+    <div class="col-2 text-center">
+      <div class="separator" (click)="moveFocus()">
+        <i [ngStyle]="{'transform': focus==Focus.REGISTER ? 'rotate(0deg)':'rotate(180deg)'}"
+           class="fas fa-chevron-right"></i>
+      </div>
+    </div>
+    <app-login class="col-4"></app-login>
   </div>
 </div>
 
