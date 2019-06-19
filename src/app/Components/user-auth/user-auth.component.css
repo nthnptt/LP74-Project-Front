@@ -23,3 +23,6 @@
 .separator>i {
   transition: transform 0.5s ease-in-out;
 }
+.changemode{
+  color: #46e4c1;
+}
