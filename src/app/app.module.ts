@@ -9,7 +9,7 @@ import { GetProfilComponent } from './Components/get-profil/get-profil.component
 import { UserAuthComponent } from './Components/user-auth/user-auth.component';
 import { RegisterComponent } from './Components/user-auth/register/register.component';
 import { LoginComponent } from './Components/user-auth/login/login.component';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,7 +25,8 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [HttpClientModule],
   bootstrap: [AppComponent]

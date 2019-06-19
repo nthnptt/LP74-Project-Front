@@ -33,7 +33,7 @@ label:focus,
   padding: 10px;
   float: right;
 }
-input[type=email],.form input[type=password],.form input[type=text]  {
+input[type=email],.form input[type=password],.form input[type=text], .form-control {
   font-size: 18px;
   border: none;
   background: none;
@@ -45,10 +45,42 @@ input[type=email],.form input[type=password],.form input[type=text]  {
 .form-group {
   margin-bottom: 7%;
 }
-.ng-valid[required], .ng-valid.required  {
-  border-left: 5px solid #42A948; /* green */
-}
+/*.ng-valid[required], .ng-valid.required  {*/
+/*  border-bottom-color: #42A948; !* green *!*/
+/*}*/
 
-.ng-invalid:not(form)  {
-  border-left: 5px solid #a94442; /* red */
+.ng-invalid:not(form)::before  {
+  border-bottom-color: #a94442; /* red */
+  content: '!';
+}
+.badge-error{
+  position: absolute;
+  left: -25px;
+  bottom: 0;
+  margin-bottom: 5px;
+  font-size: 18px;
+  padding: 0 5px;
+  text-align: center;
+  align-items: center;
+  color: red;
+}
+.form-group{
+  position: relative;
+}
+.badge-error:hover+.tooltip-error, .tooltip-error:hover{
+  display: block;
+  transform: translateX(-50%) translateY(-100%);
+  transition: transform 2s;
+  height: inherit;
+  width: inherit;
+}
+.tooltip-error{
+  position: absolute;
+  display: none;
+  left: 0;
+  bottom: 0;
+  transform: translateX(-50%) translateY(0);
+  background: red;
+  color: white;
+  padding: 5px;
 }
