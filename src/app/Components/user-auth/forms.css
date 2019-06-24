@@ -63,10 +63,12 @@ input[type=email],.form input[type=password],.form input[type=text], .form-contr
   bottom: 0;
   margin-bottom: 5px;
   font-size: 18px;
-  padding: 0 5px;
+  padding: 0 9px;
   text-align: center;
   align-items: center;
-  color: red;
+  color: #3f3e4c;
+  border-radius: 100%;
+  background-color: #EFBCD5;
 }
 .form-group{
   position: relative;
@@ -84,7 +86,7 @@ input[type=email],.form input[type=password],.form input[type=text], .form-contr
   left: 0;
   bottom: 0;
   transform: translateX(-50%) translateY(0);
-  background: red;
-  color: white;
+  background: #EFBCD5;
+  color: #3f3e4c;
   padding: 5px;
 }
