@@ -1,8 +1,3 @@
-:host {
-  padding: 50px;
-  background: #46e4c1;
-}
-
 .h1 {
   padding: 0 0 5%;
 }
@@ -24,28 +19,43 @@ label:focus,
   outline:0 !important;
   -webkit-appearance:none;
 }
-
-.btn-validation {
-  font-weight: bold;
-  background: #3f3e4c;
-  color: #46e4c1;
+.btn-validation{
   border: none;
   padding: 10px;
   float: right;
+  font-weight: bold;
+}
+.form .btn-validation {
+  background: #3f3e4c;
+  color: #46e4c1;
+
+}
+
+.form-black .btn-validation {
+  color: #3f3e4c;
+  background: #46e4c1;
 }
 button:disabled {
   background: grey;
   color:white;
 }
-input[type=email],.form input[type=password],.form input[type=text], .form-control {
+input[type=email],input[type=password],input[type=text],.form-control {
   font-size: 18px;
   border: none;
   background: none;
-  color: #3f3e4c;
-  border-bottom: #3f3e4c solid 2px;
   border-radius: 0;
   outline-width: 0;
 }
+.form input[type=email],.form input[type=password],.form input[type=text],.form .form-control {
+  color: #3f3e4c;
+  border-bottom: #3f3e4c solid 2px;
+}
+.form-black input[type=email], .form-black input[type=password], .form-black input[type=text],.form-black .form-control {
+  color: #46e4c1;
+  border-bottom: #46e4c1 solid 2px;
+}
+
+
 .form-group {
   margin-bottom: 7%;
 }

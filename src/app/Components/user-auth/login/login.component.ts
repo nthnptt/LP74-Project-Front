@@ -7,7 +7,7 @@ import {Router} from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css', '../forms.css']
+  styleUrls: ['./login.component.css', '../../../forms.css']
 })
 export class LoginComponent implements OnInit {
   @Input() focus: boolean;
@@ -22,9 +22,7 @@ export class LoginComponent implements OnInit {
     ]),
   });
 
-  constructor(private router: Router) {
-    
-  }
+  constructor(private router: Router) {}
 
   ngOnInit() {
   }

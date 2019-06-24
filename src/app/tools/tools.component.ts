@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-tools',
@@ -6,10 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tools.component.css']
 })
 export class ToolsComponent implements OnInit {
-
-  constructor() { }
+  @Output() newProject = new EventEmitter<any>();  // <!-- Voici l'output
+  constructor() {
+  }
 
   ngOnInit() {
+  }
+
+  onNewProject() {
+    console.log('s1')
+    this.newProject.emit();
   }
 
 }

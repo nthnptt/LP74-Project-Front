@@ -14,6 +14,7 @@ import { NavigationBarComponent } from './Components/navigation-bar/navigation-b
 import { HomepageComponent } from './Components/homepage/homepage.component';
 import { RecentProjectComponent } from './Components/recent-project/recent-project.component';
 import { ToolsComponent } from './tools/tools.component';
+import { InputCreateProjectComponent } from './input-create-project/input-create-project.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ToolsComponent } from './tools/tools.component';
     NavigationBarComponent,
     HomepageComponent,
     RecentProjectComponent,
-    ToolsComponent
+    ToolsComponent,
+    InputCreateProjectComponent
   ],
   imports: [
     BrowserModule,

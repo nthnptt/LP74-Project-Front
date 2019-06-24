@@ -17,5 +17,6 @@
       Mes outils
     </h2>
   </div>
-  <app-tools></app-tools>
+  <app-tools (newProject)="onNewProjectClick()"></app-tools>
 </div>
+<app-input-create-project *ngIf="createmode" (close)="createmode=false"></app-input-create-project>
