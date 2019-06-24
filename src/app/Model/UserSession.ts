@@ -8,7 +8,7 @@ export default class UserSession {
   }
 
   static session: UserSession;
-  public connected: boolean;
+  public connected: boolean; 
   private user: User;
   private token: string;
 

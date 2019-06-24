@@ -1,0 +1,39 @@
+
+.navbar{
+    margin : 0;
+    padding : 0;
+    background : #48E5C2;
+    height: 50px;
+}
+.navbar svg{
+    padding : 5px;
+    fill:#3f404c;
+    fill-rule:nonzero;
+    height:100%;
+    width:25%;
+}
+.navbar a{
+	display:inline-block;
+	color:#3f404c;
+	font-weight:bold;
+    text-decoration:none;
+	line-height:50px;
+    background-color:transparent;
+    height: 100%;
+    width:25%;
+    text-align: center;
+}
+.navbar a, .navbar a:visited {
+	outline:none;
+	color:none;
+}
+.navbar a:hover{
+    text-decoration:none;
+    background-color : #39B79B;
+    color : white;
+}
+.navbar a:active{
+    text-decoration:none;
+    background-color : #3f404c;
+    color : white;
+}
