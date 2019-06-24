@@ -1,0 +1,21 @@
+<div class="container-fluid homepage-container">
+  <div class="row">
+    <h1>
+      Bonjour {{session.getUser().name}}
+    </h1>
+  </div>
+  <div class="row">
+    <h2>
+      <i class="fas fa-user"></i>
+      Mes projets
+    </h2>
+  </div>
+  <app-recent-project></app-recent-project>
+  <div class="row">
+    <h2>
+      <i class="fas fa-wrench"></i>
+      Mes outils
+    </h2>
+  </div>
+  <app-tools></app-tools>
+</div>

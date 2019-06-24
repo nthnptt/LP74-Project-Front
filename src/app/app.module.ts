@@ -11,6 +11,9 @@ import { RegisterComponent } from './Components/user-auth/register/register.comp
 import { LoginComponent } from './Components/user-auth/login/login.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { NavigationBarComponent } from './Components/navigation-bar/navigation-bar.component';
+import { HomepageComponent } from './Components/homepage/homepage.component';
+import { RecentProjectComponent } from './Components/recent-project/recent-project.component';
+import { ToolsComponent } from './tools/tools.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,10 @@ import { NavigationBarComponent } from './Components/navigation-bar/navigation-b
     UserAuthComponent,
     RegisterComponent,
     LoginComponent,
-    NavigationBarComponent
+    NavigationBarComponent,
+    HomepageComponent,
+    RecentProjectComponent,
+    ToolsComponent
   ],
   imports: [
     BrowserModule,

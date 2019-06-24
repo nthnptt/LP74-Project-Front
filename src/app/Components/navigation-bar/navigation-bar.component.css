@@ -40,7 +40,8 @@
   margin-right: 0;
 }
 .sign-out {
-  color: #ffffff;
+  color: #3f3e4c;
   font-size: 34px;
   margin-right: 20px;
+  cursor: pointer;
 }

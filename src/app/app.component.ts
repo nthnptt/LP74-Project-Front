@@ -10,11 +10,11 @@ import {Router} from '@angular/router';
 })
 export class AppComponent {
   constructor(router: Router) {
-    const session = UserSession.get();
-    if (session.getToken()) {
-      router.navigate(['/getprofil']);
-    } else {
-      router.navigate(['/auth']);
-    }
+    const session = UserSession.get().setUser({name: 'Toto'});
+  //   if (session.getToken()) {
+  //     router.navigate(['/getprofil']);
+  //   } else {
+  //     router.navigate(['/auth']);
+  //   }
   }
 }

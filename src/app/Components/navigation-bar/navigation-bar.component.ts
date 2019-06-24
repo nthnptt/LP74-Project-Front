@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 import UserSession from '../../Model/UserSession';
 import {User} from '../../Model/User';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-navigation-bar',
@@ -9,12 +10,16 @@ import {User} from '../../Model/User';
 })
 export class NavigationBarComponent implements OnInit {
   session: UserSession;
-  constructor() {
+
+  constructor(private router: Router) {
     this.session = UserSession.get();
-    console.log(this.session.connected);
   }
 
   ngOnInit() {
   }
 
+  exit() {
+    this.session.disconnected();
+    this.router.navigate(['auth']);
+  }
 }
