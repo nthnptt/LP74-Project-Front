@@ -33,6 +33,10 @@ label:focus,
   padding: 10px;
   float: right;
 }
+button:disabled {
+  background: grey;
+  color:white;
+}
 input[type=email],.form input[type=password],.form input[type=text], .form-control {
   font-size: 18px;
   border: none;

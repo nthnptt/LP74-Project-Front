@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
@@ -7,6 +7,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
   styleUrls: ['./login.component.css', '../forms.css']
 })
 export class LoginComponent implements OnInit {
+  @Input() focus: boolean;
   userform = new FormGroup({
     username: new FormControl('', [
       Validators.required,
@@ -19,6 +20,7 @@ export class LoginComponent implements OnInit {
   });
 
   constructor() {
+    
   }
 
   ngOnInit() {

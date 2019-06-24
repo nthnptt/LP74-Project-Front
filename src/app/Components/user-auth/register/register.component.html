@@ -22,5 +22,5 @@
       <p *ngIf="password.errors.required">Champs obligatoire !</p>
     </div>
   </div>
-  <button type="submit" class="btn-validation" [disabled]="!userform.valid">Enregistrer</button>
+  <button type="submit" class="btn-validation" [disabled]="!userform.valid || focus">Enregistrer</button>
 </form>
