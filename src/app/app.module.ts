@@ -16,6 +16,9 @@ import { RecentProjectComponent } from './Components/recent-project/recent-proje
 import { ToolsComponent } from './tools/tools.component';
 import { InputCreateProjectComponent } from './input-create-project/input-create-project.component';
 import { ProjectComponent } from './project/project.component';
+import { ConveyerComponent } from './conveyer/conveyer.component';
+import { MaterialsComponent } from './materials/materials.component';
+import { EngineComponent } from './engine/engine.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +35,9 @@ import { ProjectComponent } from './project/project.component';
     ToolsComponent,
     InputCreateProjectComponent,
     ProjectComponent,
+    ConveyerComponent,
+    MaterialsComponent,
+    EngineComponent,
   ],
   imports: [
     BrowserModule,
