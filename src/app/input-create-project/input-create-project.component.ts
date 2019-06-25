@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, HostListener, OnInit, Output} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
@@ -23,6 +23,7 @@ export class InputCreateProjectComponent implements OnInit {
   ngOnInit() {
   }
 
+  @HostListener('document:keyup.escape')
   onClose() {
     this.close.emit();
   }
