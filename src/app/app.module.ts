@@ -15,6 +15,7 @@ import { HomepageComponent } from './Components/homepage/homepage.component';
 import { RecentProjectComponent } from './Components/recent-project/recent-project.component';
 import { ToolsComponent } from './tools/tools.component';
 import { InputCreateProjectComponent } from './input-create-project/input-create-project.component';
+import { ProjectComponent } from './project/project.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { InputCreateProjectComponent } from './input-create-project/input-create
     HomepageComponent,
     RecentProjectComponent,
     ToolsComponent,
-    InputCreateProjectComponent
+    InputCreateProjectComponent,
+    ProjectComponent,
   ],
   imports: [
     BrowserModule,
