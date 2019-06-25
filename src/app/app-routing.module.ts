@@ -9,7 +9,7 @@ import {ProjectComponent} from './project/project.component';
 
 const routes: Routes = [
   // { path: 'profil', component: ProfilComponent},
-  // { path: 'getprofil', component: GetProfilComponent},
+  { path: 'profil/get', component: GetProfilComponent},
   { path: 'auth', component: UserAuthComponent},
   { path: '', component: HomepageComponent},
   { path: 'projects', component: ProjectComponent},

@@ -47,8 +47,7 @@ export class LoginComponent implements OnInit {
   private connect() {
     const session = UserSession.get();
     const user = new User();
-    user.name = this.username.value;
-    session.setUser(user);
-    this.router.navigate(['/']);
+    session.setToken(this.username.value);
+    this.router.navigate(['profil/get']);
   }
 }
