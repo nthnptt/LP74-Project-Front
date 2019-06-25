@@ -8,7 +8,7 @@ import {projectsFixtures} from '../Model/Fixtures';
   styleUrls: ['./conveyer.component.css', '../tables.css']
 })
 export class ConveyerComponent implements OnInit {
-  Convoyers: Convoyer[];
+  Convoyers: Conveyer[];
 
   constructor() { }
 
