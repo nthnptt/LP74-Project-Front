@@ -12,6 +12,7 @@ export default class UserSession {
   public connected: boolean;
   private user: User;
   private token: string;
+  private lastPathRequest: string;
 
   static get(): UserSession {
     if (!UserSession.session) {
@@ -73,5 +74,17 @@ export default class UserSession {
     this.user = null;
     this.connected = false;
     this.remove();
+  }
+
+  setLastPathRequest(path: string) {
+    this.lastPathRequest = path;
+  }
+
+  getLastPathRequest(): string {
+    if (this.lastPathRequest) {
+      return this.lastPathRequest;
+    } else {
+      return '/';
+    }
   }
 }

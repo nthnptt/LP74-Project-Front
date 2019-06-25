@@ -18,7 +18,7 @@ import { ProjectComponent } from './project/project.component';
 import { ConveyerComponent } from './conveyer/conveyer.component';
 import { MaterialsComponent } from './materials/materials.component';
 import { EngineComponent } from './engine/engine.component';
-import { MoreProjectsComponent } from './more-projects/more-projects.component';
+import {MoreProjectsComponent} from './Components/more-projects/more-projects.component';
 
 @NgModule({
   declarations: [

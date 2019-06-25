@@ -21,7 +21,10 @@ export class GetProfilComponent implements OnInit {
 
     window.setTimeout(() => {
       UserSession.get().setUser({name: UserSession.get().getToken()});
-      router.navigate(['/']);
+      const url = UserSession.get().getLastPathRequest();
+      console.log(url)
+      UserSession.get().setLastPathRequest(null);
+      router.navigate([url]);
     }, 1000);
 
   }
