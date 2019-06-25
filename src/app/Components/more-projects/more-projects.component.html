@@ -2,7 +2,7 @@
   <div class="close-modal" (click)="onClose()">
     <i class="fas fa-times"></i>
   </div>
-  <div class="row text-center">
+  <div class="row text-center" *ngIf="project">
     <div class="col-12">
       <h1>{{project.name}}</h1>
     </div>
@@ -13,18 +13,18 @@
       </div>
     </div>
   </div>
-  <div class="row entry-part">
+  <div class="row entry-part" *ngIf="project">
     <div class="col-11 mx-auto">
       <h2>Entrée :</h2>
     </div>
     <div class="col-10 mx-auto">
-      <ul class="list-group list-group-flush">
+      <ul class="list-group list-group-flush" >
         <li  *ngFor="let in of project.inputs" class="list-group-item">{{in.needed}}x - {{in.material.name}}</li>
       </ul>
     </div>
   </div>
 
-  <div class="row entry-part">
+  <div class="row entry-part" *ngIf="project">
     <div class="col-11 mx-auto">
       <h2>Sorties :</h2>
     </div>

@@ -10,6 +10,7 @@ import {projectsFixtures} from '../Model/Fixtures';
 export class ProjectComponent implements OnInit {
   projects: Project[];
   focus: Project;
+  filter = '';
   createmode: boolean;
 
   constructor() {
@@ -38,5 +39,18 @@ export class ProjectComponent implements OnInit {
     if (this.focus) {
       this.focus = null;
     }
+  }
+
+  isFiltered(): boolean {
+    return true;
+  }
+
+  projectsFilter(): Project[] {
+    const result = this.projects.filter((p: Project) => {
+        return p.name.match(this.filter + '.*');
+      }
+    );
+    console.log(result);
+    return result;
   }
 }
