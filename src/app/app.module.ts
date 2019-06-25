@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ProfilComponent } from './Components/profil/profil.component';
 import { AuthentificationComponent } from './Components/authentification/authentification.component';
 import { GetProfilComponent } from './Components/get-profil/get-profil.component';
 import { UserAuthComponent } from './Components/user-auth/user-auth.component';
@@ -16,11 +15,11 @@ import { RecentProjectComponent } from './Components/recent-project/recent-proje
 import { ToolsComponent } from './tools/tools.component';
 import { InputCreateProjectComponent } from './Components/input-create-project/input-create-project.component';
 import { ProjectComponent } from './project/project.component';
+import { MoreProjectsComponent } from './more-projects/more-projects.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProfilComponent,
     AuthentificationComponent,
     GetProfilComponent,
     UserAuthComponent,
@@ -32,6 +31,7 @@ import { ProjectComponent } from './project/project.component';
     ToolsComponent,
     InputCreateProjectComponent,
     ProjectComponent,
+    MoreProjectsComponent,
   ],
   imports: [
     BrowserModule,
