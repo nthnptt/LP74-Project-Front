@@ -4,7 +4,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 @Component({
   selector: 'app-input-create-project',
   templateUrl: './input-create-project.component.html',
-  styleUrls: ['./input-create-project.component.css', '../forms.css']
+  styleUrls: ['./input-create-project.component.css', '../../forms.css']
 })
 export class InputCreateProjectComponent implements OnInit {
   @Output() close = new EventEmitter<any>();  // <!-- Voici l'output

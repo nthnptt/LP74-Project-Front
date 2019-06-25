@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {UserService} from '../../Services/user.service';
 import {User} from '../../Model/User';
 import UserSession from '../../Model/UserSession';
@@ -19,8 +19,11 @@ export class GetProfilComponent implements OnInit {
     //   router.navigate(['profil']);
     // });
 
-    UserSession.get().setUser({name: UserSession.get().getToken()});
-    router.navigate(['profil']);
+    window.setTimeout(() => {
+      UserSession.get().setUser({name: UserSession.get().getToken()});
+      router.navigate(['/']);
+    }, 1000);
+
   }
 
   ngOnInit() {

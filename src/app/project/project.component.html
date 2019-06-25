@@ -34,3 +34,7 @@
     </tbody>
   </table>
 </div>
+<div (click)="onNew()" class="float-control-button">
+  <i class="fas fa-plus"></i>
+</div>
+<app-input-create-project *ngIf="createmode" (close)="createmode=false"></app-input-create-project>
