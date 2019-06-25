@@ -5,12 +5,16 @@
     background : #48E5C2;
     height: 50px;
 }
+.navbar .logoNavBar{
+    width:25%;
+    height:100%;
+}
 .navbar svg{
     padding : 5px;
     fill:#3f404c;
     fill-rule:nonzero;
     height:100%;
-    width:25%;
+
 }
 .navbar a{
 	display:inline-block;
