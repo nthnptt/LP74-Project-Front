@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, HostListener, Input, OnInit, Output} from '@angular/core';
 import {Project} from '../../Model/Project';
 import {projectsFixtures} from '../../Model/Fixtures';
 
@@ -8,15 +8,24 @@ import {projectsFixtures} from '../../Model/Fixtures';
   styleUrls: ['./more-projects.component.css']
 })
 export class MoreProjectsComponent implements OnInit {
-  projet: Project;
-  constructor() {
-    this.projet = projectsFixtures[0];
-  }
+  @Input() project: Project;
+  @Output() close = new EventEmitter<any>();
+
+  constructor() {}
 
   ngOnInit() {
   }
 
+  @HostListener('document:keyup.escape')
   onClose() {
-    console.log('close');
+    this.close.emit();
+  }
+
+  onDelete() {
+    console.log('delete');
+  }
+
+  onEdit() {
+    console.log('delete');
   }
 }

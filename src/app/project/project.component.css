@@ -26,6 +26,7 @@
   border-bottom-left-radius: 20px;
 }
 .projectcontainer {
+  min-height: calc(100vh - 110px);
   padding: 0;
 }
 
