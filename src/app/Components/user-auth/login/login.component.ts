@@ -1,10 +1,13 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import UserSession from '../../../Model/UserSession';
+import {User} from '../../../Model/User';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css', '../forms.css']
+  styleUrls: ['./login.component.css', '../../../forms.css']
 })
 export class LoginComponent implements OnInit {
   @Input() focus: boolean;
@@ -19,9 +22,7 @@ export class LoginComponent implements OnInit {
     ]),
   });
 
-  constructor() {
-    
-  }
+  constructor(private router: Router) {}
 
   ngOnInit() {
   }
@@ -32,6 +33,7 @@ export class LoginComponent implements OnInit {
       password : this.password.value
     };
     console.log(user);
+    this.connect();
   }
 
   get username() {
@@ -42,4 +44,11 @@ export class LoginComponent implements OnInit {
     return this.userform.get('password');
   }
 
+  private connect() {
+    const session = UserSession.get();
+    const user = new User();
+    user.name = this.username.value;
+    session.setUser(user);
+    this.router.navigate(['/']);
+  }
 }

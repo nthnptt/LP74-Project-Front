@@ -5,10 +5,11 @@ import {User} from './User';
 export default class UserSession {
   protected constructor() {
     this.token = null;
+    this.connected = false;
   }
 
   static session: UserSession;
-  public connected: boolean; 
+  public connected: boolean;
   private user: User;
   private token: string;
 

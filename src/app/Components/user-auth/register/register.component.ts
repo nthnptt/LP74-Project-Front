@@ -6,7 +6,7 @@ import {UserForm} from '../../../Model/UserForm';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css', '../forms.css']
+  styleUrls: ['./register.component.css', '../../../forms.css']
 })
 export class RegisterComponent implements OnInit {
   @Input() focus : boolean;
