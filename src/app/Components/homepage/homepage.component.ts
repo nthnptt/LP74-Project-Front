@@ -18,7 +18,6 @@ export class HomepageComponent implements OnInit {
   }
 
   onNewProjectClick() {
-    console.log('s2')
     this.createmode = true;
   }
 

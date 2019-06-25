@@ -9,9 +9,11 @@ import {projectsFixtures} from '../Model/Fixtures';
 })
 export class ProjectComponent implements OnInit {
   projects: Project[];
+  createmode: boolean;
 
   constructor() {
     this.projects = projectsFixtures;
+    this.createmode = false;
   }
 
   ngOnInit() {
@@ -23,5 +25,9 @@ export class ProjectComponent implements OnInit {
 
   onInfo(p: Project) {
     console.log('Info');
+  }
+
+  onNew() {
+    this.createmode = true;
   }
 }
