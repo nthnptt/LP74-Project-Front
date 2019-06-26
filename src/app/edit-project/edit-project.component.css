@@ -1,0 +1,60 @@
+.collections {
+  background: #3f3e4c;
+  border-right: solid 4px #46e4c1;
+  border-top: solid 4px #46e4c1;
+  height: calc(100vh - 100px);
+}
+
+.pages-fixeonbar {
+  padding: 0;
+}
+
+.workspace {
+  height: calc(100vh - 100px);
+}
+
+.row {
+  margin: 0;
+}
+
+.collections {
+}
+
+.mytooltip {
+  width: 100%;
+  height: 50px;
+  position: absolute;
+  color: white;
+  bottom: 0;
+  left: 0;
+  background: #46e4c1;
+}
+
+.mytooltip svg {
+  height: 30px;
+  fill: #3f3e4c;
+}
+
+.mytooltip > * {
+  padding: 10px 0px;
+}
+
+.mytooltip > *:hover {
+  background: #38B79B;
+  fill: #ffffff;
+}
+
+.mytooltip-active > svg {
+  fill: #ffffff;
+}
+.mytooltip-active{
+  background: #38B79B;
+}
+
+.mytooltip-active:hover > svg {
+  fill: #ffffff;
+}
+
+.mytooltip-cat:hover > svg {
+  fill: #ffffff;
+}

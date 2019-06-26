@@ -19,6 +19,7 @@ import { ConveyerComponent } from './conveyer/conveyer.component';
 import { MaterialsComponent } from './materials/materials.component';
 import { EngineComponent } from './engine/engine.component';
 import {MoreProjectsComponent} from './Components/more-projects/more-projects.component';
+import { EditProjectComponent } from './edit-project/edit-project.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import {MoreProjectsComponent} from './Components/more-projects/more-projects.co
     MaterialsComponent,
     EngineComponent,
     MoreProjectsComponent,
+    EditProjectComponent,
   ],
   imports: [
     BrowserModule,
