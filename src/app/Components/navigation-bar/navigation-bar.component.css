@@ -1,0 +1,47 @@
+.navbar-brand > svg {
+  height: 40px;
+  width: 100px;
+  fill: #3f3e4c;
+}
+.navbar {
+  padding: 0;
+  height: 100px;
+}
+.bg-app {
+  background-color: #46e4c1;
+}
+.bg-app .nav-item{
+  color: #3f3e4c !important;
+
+}
+.bg-app .active{
+  color: #ffffff !important;
+  background-color: #38B79B;
+}
+.navbar-nav{
+  height: 100%;
+  vertical-align: center;
+}
+.navbar-collapse{
+  height: 100%;
+}
+.nav-item {
+  vertical-align: middle;
+  font-size: 23px;
+  font-weight: bold;
+  padding: 0 50px !important;
+  height: 100%;
+  line-height: 100px;
+}
+.nav-item:hover {
+  background-color: #38B79B;
+}
+.navbar-brand {
+  margin-right: 0;
+}
+.sign-out {
+  color: #3f3e4c;
+  font-size: 34px;
+  margin-right: 20px;
+  cursor: pointer;
+}

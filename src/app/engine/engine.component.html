@@ -1,0 +1,36 @@
+<div class="container-fluid pages projectcontainer">
+  <div class="row">
+    <div class="mx-auto col-10 search-group">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">
+          <i class="fas fa-search"></i>
+        </span>
+        </div>
+        <input type="text" class="form-control" placeholder="Recherche" aria-describedby="basic-addon1">
+      </div>
+    </div>
+  </div>
+  <table class="table app-table">
+    <thead>
+    <tr>
+      <th>Nom des machines</th>
+      <th>Auteur</th>
+      <th>Date de modification</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let p of projects">
+      <td>{{p.name}}</td>
+      <td>{{p.author}}</td>
+      <td>{{p.lastUpdate}}</td>
+      <td class="tool-cell">
+        <i (click)="onInfo(p)" class="fas fa-info-circle click "></i>
+        <i class="fas fa-edit click "></i>
+        <i (click)="onDelete(p)" class="far fa-trash-alt click warn-click"></i>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

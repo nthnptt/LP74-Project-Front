@@ -5,12 +5,14 @@ import {User} from './User';
 export default class UserSession {
   protected constructor() {
     this.token = null;
+    this.connected = false;
   }
 
   static session: UserSession;
   public connected: boolean;
   private user: User;
   private token: string;
+  private lastPathRequest: string;
 
   static get(): UserSession {
     if (!UserSession.session) {
@@ -72,5 +74,17 @@ export default class UserSession {
     this.user = null;
     this.connected = false;
     this.remove();
+  }
+
+  setLastPathRequest(path: string) {
+    this.lastPathRequest = path;
+  }
+
+  getLastPathRequest(): string {
+    if (this.lastPathRequest) {
+      return this.lastPathRequest;
+    } else {
+      return '/';
+    }
   }
 }
