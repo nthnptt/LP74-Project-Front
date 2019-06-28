@@ -13,6 +13,8 @@
   height: 100%;
   cursor: pointer;
   user-select: none;
+  box-shadow: 0px 1px 15px 0px rgba(39, 38, 47, 0.75);
+
 }
 .projects>div{
   display: table-cell;

@@ -1,7 +1,7 @@
 .collections {
+  padding-top: 15px;
   background: #3f3e4c;
   border-right: solid 4px #46e4c1;
-  border-top: solid 4px #46e4c1;
   height: calc(100vh - 100px);
 }
 
@@ -57,4 +57,26 @@
 
 .mytooltip-cat:hover > svg {
   fill: #ffffff;
+}
+
+.search-group input{
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border: none;
+}
+
+.search-group input:focus
+{
+  box-shadow: inset 0 -1px 0 #ddd;
+  outline:0px !important;
+  -webkit-appearance:none;
+}
+
+.search-group .input-group-text {
+  background: #ffffff;
+  border: none;
+}
+.search-group .input-group-text{
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
 }
