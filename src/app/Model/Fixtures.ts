@@ -29,3 +29,29 @@ export const projectsFixtures = [
     outputs: [{material: materialFixtures[2], number: 5, time: 120}]
   },
 ];
+export const engineFixtures = [
+  {
+    id: 1,
+    name: 'Furnace',
+    author: 'Bob',
+    lastUpdate: '26 jui. 2017',
+    inputs: [{material: materialFixtures[1], needed: 10}],
+    outputs: [{material: materialFixtures[2], number: 5, time: 120}]
+  },
+  {
+    id: 2,
+    name: 'Furnace',
+    author: 'Bob',
+    lastUpdate: '26 jui. 2017',
+    inputs: [{material: materialFixtures[1], needed: 10}],
+    outputs: [{material: materialFixtures[2], number: 5, time: 120}]
+  },
+  {
+    id: 3,
+    name: 'Furnace',
+    author: 'Bob',
+    lastUpdate: '26 jui. 2017',
+    inputs: [{material: materialFixtures[1], needed: 10}],
+    outputs: [{material: materialFixtures[2], number: 5, time: 120}]
+  },
+];

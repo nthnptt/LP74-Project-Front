@@ -1,0 +1,93 @@
+<div (keyup.escape)="onClose()" style="display: block" class="modal fade show input-create-modal"
+     id="exampleModalCenter" tabindex="-1" role="dialog"
+     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg app-modal" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title" id="exampleModalLongTitle">Nouveau matériaux</h1>
+        <div class="close-modal" (click)="onClose()">
+          <i class="fas fa-times"></i>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <form class="form-black col-12" [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="unameengine">Nom de la machine : </label>
+              <input formControlName="enginename" type="text" class="form-control" id="unameengine"
+                     aria-describedby="nameHelp" placeholder="Entrer un nom">
+              <span *ngIf="enginename.invalid && (enginename.dirty || enginename.touched)" class="badge-error">
+            <i class="fas fa-exclamation"></i>
+          </span>
+              <div class="tooltip-error" *ngIf="enginename.invalid && (enginename.dirty || enginename.touched)">
+                <p *ngIf="enginename.errors.minlength">Votre pseudo doit comporter 3 caractères !</p>
+                <p *ngIf="enginename.errors.required">Champs obligatoire !</p>
+              </div>
+            </div>
+            <div class="row inout-cont">
+              <div class="col-6 in-cont">
+                <div class="row">
+                  <h4 class="mx-auto">Entrée</h4>
+                </div>
+                <div class="row in-line" *ngFor="let inp of engine.inputs">
+                  <div class="delete-button" (click)="onDeleteInput(inp)">
+                    <i class="far fa-trash-alt"></i>
+                  </div>
+                  <div class="col-12">
+                    <h5>{{inp.material.name}}</h5>
+                  </div>
+                  <div class="col-6">
+                    Nombre
+                  </div>
+                  <div class="col-6">
+                    <app-increment-button [defaultValue]="inp.needed" (update)="updateInputNumber(inp, $event)" lowLimit="1"></app-increment-button>
+                  </div>
+                </div>
+                <div class="row">
+                  <div (click)="onAddInput()" class="mx-auto control-button">
+                    <i class="fas fa-plus"></i>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-6 out-cont">
+                <div class="row">
+                  <h4 class="mx-auto">Sorties</h4>
+                </div>
+                <div class="row in-line" *ngFor="let out of engine.outputs">
+                  <div class="delete-button" (click)="onDeleteOuput(out)">
+                    <i class="far fa-trash-alt"></i>
+                  </div>
+                  <div class="col-12">
+                    <h5>{{out.material}}</h5>
+                  </div>
+                  <div class="col-6">
+                    Nombre
+                  </div>
+                  <div class="col-6">
+                    <app-increment-button (update)="updateOutputNumber(out, $event)" [defaultValue]="out.number" lowLimit="1"></app-increment-button>
+                  </div>
+                  <div class="col-6">
+                    Temps
+                  </div>
+                  <div class="col-6">
+                    <app-increment-button (update)="updateOutputTime(out, $event)" [defaultValue]="out.time" lowLimit="0"></app-increment-button>
+                  </div>
+                </div>
+                <div class="row">
+                  <div (click)="onAddOutput()" class="mx-auto control-button">
+                    <i class="fas fa-plus"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button type="submit" class="btn-validation" [disabled]="!form.valid">Création</button>
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>
+<app-modal-material *ngIf="isSelectedMaterial"  (close)="isSelectedMaterial=false" (select)="onSelectMaterial($event)"></app-modal-material>

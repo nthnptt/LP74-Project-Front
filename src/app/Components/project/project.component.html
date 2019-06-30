@@ -1,0 +1,42 @@
+<div class="container-fluid pages projectcontainer" (click)="onCloseMore()">
+  <div class="row">
+    <div class="mx-auto col-10 search-group">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">
+          <i class="fas fa-search"></i>
+        </span>
+        </div>
+        <input [(ngModel)]="filter" type="text" class="form-control" placeholder="Recherche" aria-describedby="basic-addon1">
+      </div>
+    </div>
+  </div>
+  <table class="table app-table">
+    <thead>
+    <tr>
+      <th>Nom des projet</th>
+      <th>Auteur</th>
+      <th>Date de modification</th>
+<!--      <th>Actions</th>-->
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="click" (click)="onInfo(p, $event)" *ngFor="let p of projectsFilter()">
+      <td>{{p.name}}</td>
+      <td>{{p.author}}</td>
+      <td>{{p.lastUpdate}}</td>
+<!--      <td class="tool-cell">-->
+<!--        <i (click)="onInfo(p, $event)" class="fas fa-info-circle click "></i>-->
+<!--        <i class="fas fa-edit click "></i>-->
+<!--        <i (click)="onDelete(p)" class="far fa-trash-alt click warn-click"></i>-->
+<!--      </td>-->
+    </tr>
+    </tbody>
+  </table>
+  <div (click)="onNew()" class="float-control-button">
+    <i class="fas fa-plus"></i>
+  </div>
+</div>
+
+<app-input-create-project *ngIf="createmode" (close)="createmode=false"></app-input-create-project>
+<app-more-projects [project]="focus" (close)="onCloseMore()"></app-more-projects>

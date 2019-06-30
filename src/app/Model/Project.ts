@@ -1,5 +1,5 @@
 import {Input} from './Input';
-import {Output} from './Output';
+import {OutputMat} from './OutputMat';
 
 export class Project {
   id: number;
@@ -7,5 +7,5 @@ export class Project {
   author: string;
   lastUpdate: string;
   inputs: Input[];
-  outputs: Output[];
+  outputs: OutputMat[];
 }

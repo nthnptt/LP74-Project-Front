@@ -5,9 +5,10 @@ body {
   background: #3f3e4c;
   width: 100%;
   margin: 0;
+  height: 100vh;
 }
 .pages{
- margin-top: 110px;
+ padding-top: 110px;
 }
 .pages-fixeonbar{
   margin-top: 100px;
