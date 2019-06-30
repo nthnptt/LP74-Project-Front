@@ -3,6 +3,7 @@
   color: #46e4c1;
   /*border-bottom: solid 3px;*/
 }
+
 .app-table * {
   border-color: #46e4c1 !important;
 }
@@ -15,31 +16,38 @@
   border-top: none;
 }
 
-.app-table td, .app-table th{
+.app-table td, .app-table th {
   border-left: solid 3px;
   width: 25%;
 }
-.app-table td:first-child, .app-table th:first-child{
+
+.app-table td:first-child, .app-table th:first-child {
   border-left: none;
 }
-.app-table tbody  tr:hover{
+
+.app-table tbody tr:hover {
   background-color: #646370;
 }
-.app-table td{
+
+.app-table td {
   font-size: 21px;
   padding-left: 15px;
 }
+
 .app-table .click {
   cursor: pointer;
   user-select: none;
 }
+
 .app-table .warn-click {
   color: #EFBCD5;
 }
+
 .app-table .tool-cell {
   text-align: right;
   padding-right: 15px;
 }
-.app-table .tool-cell>* {
+
+.app-table .tool-cell > * {
   margin: 10px;
 }

@@ -1,5 +1,8 @@
 import {Component, EventEmitter, HostListener, OnInit, Output} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {Input} from '../../Model/Input';
+import UserSession from '../../Model/UserSession';
+import {projectsFixtures} from '../../Model/Fixtures';
 
 @Component({
   selector: 'app-input-create-project',
@@ -33,6 +36,15 @@ export class InputCreateProjectComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.projectname.value);
+    const project =   {
+      id: projectsFixtures.length+1,
+      name: this.projectname.value,
+      author: UserSession.get().getUser().name,
+      lastUpdate: 'today',
+      inputs: [],
+      outputs: [],
+    }
+    projectsFixtures.push(project);
+    this.onClose();
   }
 }

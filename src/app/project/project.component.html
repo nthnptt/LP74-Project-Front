@@ -17,19 +17,19 @@
       <th>Nom des projet</th>
       <th>Autheur</th>
       <th>Date de modification</th>
-      <th>Actions</th>
+<!--      <th>Actions</th>-->
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let p of projectsFilter()">
+    <tr class="click" (click)="onInfo(p, $event)" *ngFor="let p of projectsFilter()">
       <td>{{p.name}}</td>
       <td>{{p.author}}</td>
       <td>{{p.lastUpdate}}</td>
-      <td class="tool-cell">
-        <i (click)="onInfo(p, $event)" class="fas fa-info-circle click "></i>
-        <i class="fas fa-edit click "></i>
-        <i (click)="onDelete(p)" class="far fa-trash-alt click warn-click"></i>
-      </td>
+<!--      <td class="tool-cell">-->
+<!--        <i (click)="onInfo(p, $event)" class="fas fa-info-circle click "></i>-->
+<!--        <i class="fas fa-edit click "></i>-->
+<!--        <i (click)="onDelete(p)" class="far fa-trash-alt click warn-click"></i>-->
+<!--      </td>-->
     </tr>
     </tbody>
   </table>
