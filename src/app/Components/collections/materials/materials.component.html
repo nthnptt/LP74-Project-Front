@@ -1,0 +1,14 @@
+<table class="table app-table">
+  <thead>
+  <tr>
+    <th>Nom materiaux</th>
+    <th>Autheur</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr class="click" (click)="onClick(m, $event)" *ngFor="let m of elementFilter()">
+    <td>{{m.name}}</td>
+    <td>{{m.author}}</td>
+  </tr>
+  </tbody>
+</table>

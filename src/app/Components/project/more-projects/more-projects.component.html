@@ -19,7 +19,7 @@
     </div>
     <div class="col-10 mx-auto">
       <ul class="list-group list-group-flush" >
-        <li  *ngFor="let in of project.inputs" class="list-group-item">{{in.needed}}x - {{in.material.name}}</li>
+        <li *ngFor="let input of project.inputs" class="list-group-item">{{input.needed}}x - {{input.material.name}}</li>
       </ul>
     </div>
   </div>
@@ -39,7 +39,7 @@
   <div (click)="onDelete()" class="float-control-button float-control-delete">
     <i class="far fa-trash-alt"></i>
   </div>
-  <div (click)="onEdit()" [routerLink]="['/projects', project.id]" class="float-control-button float-control-edit">
+  <div *ngIf="project" (click)="onEdit()" [routerLink]="['/projects', project.id]" class="float-control-button float-control-edit">
     <i class="fas fa-edit"></i>
   </div>
 </div>

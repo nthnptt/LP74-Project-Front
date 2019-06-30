@@ -1,0 +1,21 @@
+<div class="container-fluid pages projectcontainer" (click)="onCloseMore()">
+  <div class="row">
+    <div class="mx-auto col-10 search-group">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">
+          <i class="fas fa-search"></i>
+        </span>
+        </div>
+        <input [(ngModel)]="filter" type="text" class="form-control" placeholder="Recherche" aria-describedby="basic-addon1">
+      </div>
+    </div>
+  </div>
+  <app-materials (focus)="onFocusMaterial($event)" [filter]="filter"></app-materials>
+  <div (click)="onNewMaterial()" class="float-control-button">
+    <i class="fas fa-plus"></i>
+  </div>
+</div>
+<app-more-material [material]="focusMaterial" (close)="onCloseMore()"></app-more-material>
+<app-input-create-material *ngIf="createdMaterialMode" (close)="createdMaterialMode=false"></app-input-create-material>
+

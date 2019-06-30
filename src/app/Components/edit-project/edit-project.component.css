@@ -36,7 +36,7 @@
 }
 
 .mytooltip > * {
-  padding: 10px 0px;
+  padding: 10px 0;
 }
 
 .mytooltip > *:hover {
@@ -47,7 +47,8 @@
 .mytooltip-active > svg {
   fill: #ffffff;
 }
-.mytooltip-active{
+
+.mytooltip-active {
   background: #38B79B;
 }
 
@@ -59,24 +60,24 @@
   fill: #ffffff;
 }
 
-.search-group input{
+.search-group input {
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
   border: none;
 }
 
-.search-group input:focus
-{
+.search-group input:focus {
   box-shadow: inset 0 -1px 0 #ddd;
-  outline:0px !important;
-  -webkit-appearance:none;
+  outline: 0 !important;
+  -webkit-appearance: none;
 }
 
 .search-group .input-group-text {
   background: #ffffff;
   border: none;
 }
-.search-group .input-group-text{
+
+.search-group .input-group-text {
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
 }

@@ -1,6 +1,5 @@
 import {Component, EventEmitter, HostListener, Input, OnInit, Output} from '@angular/core';
-import {Project} from '../../Model/Project';
-import {projectsFixtures} from '../../Model/Fixtures';
+import {Project} from '../../../Model/Project';
 
 @Component({
   selector: 'app-more-projects',

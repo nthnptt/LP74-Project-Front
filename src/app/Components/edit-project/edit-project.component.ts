@@ -1,8 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, ParamMap} from '@angular/router';
-import {switchMap} from 'rxjs/operators';
-import {projectsFixtures} from '../Model/Fixtures';
-import {Project} from '../Model/Project';
+import {ActivatedRoute} from '@angular/router';
+import {projectsFixtures} from '../../Model/Fixtures';
+import {Project} from '../../Model/Project';
 
 enum Mode {
   CONVEYER,
