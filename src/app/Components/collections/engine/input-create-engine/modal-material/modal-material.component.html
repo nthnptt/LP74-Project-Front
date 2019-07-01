@@ -1,0 +1,32 @@
+<div (keyup.escape)="onClose($event)" style="display: block" class="modal fade show input-create-modal"
+     id="exampleModalCenter" tabindex="-1" role="dialog"
+     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg app-modal" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title">
+          <h1 id="exampleModalLongTitle" class="col-12">Selection du matériau</h1>
+          <div class="close-modal" (click)="onClose($event)">
+            <i class="fas fa-times"></i>
+          </div>
+          <div class="mx-auto col-10 search-group">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">
+          <i class="fas fa-search"></i>
+        </span>
+              </div>
+              <input [(ngModel)]="filter" type="text" placeholder="Recherche" aria-describedby="basic-addon1">
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="modal-body">
+        <app-materials [filter]="filter" [expandMode]="false" (focus)="onSelectMaterial($event)"></app-materials>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>
