@@ -9,6 +9,7 @@ import {Engine} from '../../../../Model/Engine';
 export class MoreEngineComponent implements OnInit {
   @Input() engine: Engine;
   @Output() close = new EventEmitter<any>();
+  @Output() edit = new EventEmitter<Engine>();
 
   constructor() {
   }
@@ -19,7 +20,8 @@ export class MoreEngineComponent implements OnInit {
   onDelete() {
   }
 
-  onEdit() {
+  onEdit(e: Engine) {
+    this.edit.emit(e);
   }
 
   @HostListener('document:keyup.escape')

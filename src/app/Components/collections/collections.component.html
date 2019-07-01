@@ -21,8 +21,8 @@
 <app-more-material [material]="focusMaterial" (close)="onCloseMore()"></app-more-material>
 <app-input-create-material *ngIf="createdMaterialMode" (close)="createdMaterialMode=false"></app-input-create-material>
 
-<app-more-engine [engine]="focusEngine" (close)="onCloseMore()"></app-more-engine>
-<app-input-create-engine *ngIf="createdEngineMode" (close)="createdEngineMode=false"></app-input-create-engine>
+<app-more-engine (edit)="onEditEngine($event)" [engine]="focusEngine" (close)="onCloseMore()"></app-more-engine>
+<app-input-create-engine  [object]="editEngine" *ngIf="createdEngineMode" (close)="reset()"></app-input-create-engine>
 
   <div class="row  mytooltip ">
     <div (click)="onChangeMode(Mode.ENGINE)" class="col-6 mytooltip-cat"

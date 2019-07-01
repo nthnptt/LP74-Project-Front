@@ -1,12 +1,12 @@
 import {Entity} from './Entity';
 import {OutputMat} from './OutputMat';
-import {Input} from './Input';
+import {MaterialInput} from './MaterialInput';
 
 export class Engine extends Entity {
   name: string;
   author: string;
   lastUpdate: string;
-  inputs: Input[];
+  inputs: MaterialInput[];
   outputs: OutputMat[];
 
   constructor() {
