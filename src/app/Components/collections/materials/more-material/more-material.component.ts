@@ -9,6 +9,7 @@ import {Material} from '../../../../Model/Material';
 export class MoreMaterialComponent implements OnInit {
   @Input() material: Material;
   @Output() close = new EventEmitter<any>();
+  @Output() edit = new EventEmitter<Material>();
 
   constructor() {
   }
@@ -19,7 +20,8 @@ export class MoreMaterialComponent implements OnInit {
   onDelete() {
   }
 
-  onEdit() {
+  onEdit(e: Material) {
+    this.edit.emit(e);
   }
 
   @HostListener('document:keyup.escape')

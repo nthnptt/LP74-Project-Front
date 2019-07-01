@@ -20,7 +20,6 @@ enum CreateMode {
 export class InputCreateEngineComponent implements OnInit, OnChanges {
   @Output() close = new EventEmitter<any>();
   @Input() object: Engine;
-  isCreate: boolean;
   engine = new Engine();
 
   form = new FormGroup({
@@ -44,7 +43,11 @@ export class InputCreateEngineComponent implements OnInit, OnChanges {
   }
 
   onSubmit() {
-    if (this.isCreate) {
+    if (this.form.invalid) {
+      this.form.markAsTouched();
+      return;
+    }
+    if (this.isCreate()) {
       this.create();
     } else {
       this.update();
@@ -134,12 +137,14 @@ export class InputCreateEngineComponent implements OnInit, OnChanges {
     const object: SimpleChange = changes.object;
     this.object = object.currentValue;
     if (this.object) {
-      this.isCreate = false;
       this.engine = JSON.parse(JSON.stringify(this.object));
       this.form.controls.enginename.setValue(this.engine.name);
     } else {
-      this.isCreate = true;
       this.engine = new Engine();
     }
+  }
+
+  private isCreate() {
+    return this.engine.id === null;
   }
 }

@@ -4,8 +4,8 @@
   <div class="modal-dialog modal-dialog-centered modal-lg app-modal" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title" *ngIf="isCreate">Nouveau matériaux</h1>
-        <h1 class="modal-title" *ngIf="!isCreate">Modification matériaux</h1>
+        <h1 class="modal-title" *ngIf="isCreate">Novelle machine</h1>
+        <h1 class="modal-title" *ngIf="!isCreate">Modification machine</h1>
         <div class="close-modal" (click)="onClose()">
           <i class="fas fa-times"></i>
         </div>
@@ -17,10 +17,10 @@
               <label for="unameengine">Nom de la machine : </label>
               <input formControlName="enginename" type="text" class="form-control" id="unameengine"
                      aria-describedby="nameHelp" placeholder="Entrer un nom">
-              <span *ngIf="enginename.invalid && (enginename.dirty || enginename.touched)" class="badge-error">
+              <span *ngIf="enginename.invalid && (enginename.dirty || enginename.touched || form.touched)" class="badge-error">
             <i class="fas fa-exclamation"></i>
           </span>
-              <div class="tooltip-error" *ngIf="enginename.invalid && (enginename.dirty || enginename.touched)">
+              <div class="tooltip-error" *ngIf="enginename.invalid && (enginename.dirty || enginename.touched || form.touched)">
                 <p *ngIf="enginename.errors.minlength">Votre pseudo doit comporter 3 caractères !</p>
                 <p *ngIf="enginename.errors.required">Champs obligatoire !</p>
               </div>
@@ -82,8 +82,8 @@
                 </div>
               </div>
             </div>
-            <button type="submit" class="btn-validation" *ngIf="isCreate">Créer</button>
-            <button type="submit" class="btn-validation" *ngIf="!isCreate">Modifier</button>
+            <input type="submit" class="btn-validation" *ngIf="isCreate" value="Créer">
+            <input type="submit" class="btn-validation" *ngIf="!isCreate" value="Modifier">
           </form>
         </div>
       </div>
