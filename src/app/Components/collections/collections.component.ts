@@ -22,6 +22,7 @@ export class CollectionsComponent implements OnInit {
   mode: Mode;
   Mode = Mode;
   editEngine: Engine;
+  editMaterial: Material;
 
   constructor() {
     this.mode = Mode.ENGINE;
@@ -72,6 +73,7 @@ export class CollectionsComponent implements OnInit {
     this.createdEngineMode = false;
     this.filter = '';
     this.editEngine = null;
+    this.editMaterial = null;
 
   }
 
@@ -79,5 +81,12 @@ export class CollectionsComponent implements OnInit {
     this.onCloseMore();
     this.createdEngineMode = true;
     this.editEngine = e;
+  }
+
+  onEditMaterial(e: Material) {
+    this.onCloseMore();
+    this.createdMaterialMode = true;
+    this.editMaterial = e;
+    console.log(e)
   }
 }

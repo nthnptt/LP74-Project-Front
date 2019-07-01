@@ -1,15 +1,19 @@
-import {Component, EventEmitter, HostListener, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, HostListener, Input, OnChanges, OnInit, Output, SimpleChange, SimpleChanges} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {materialFixtures} from '../../../../Model/Fixtures';
+import {engineFixtures, materialFixtures} from '../../../../Model/Fixtures';
 import UserSession from '../../../../Model/UserSession';
+import {Material} from '../../../../Model/Material';
+import {Engine} from '../../../../Model/Engine';
 
 @Component({
   selector: 'app-input-create-material',
   templateUrl: './input-create-material.component.html',
   styleUrls: ['./input-create-material.component.css', '../../../../forms.css']
 })
-export class InputCreateMaterialComponent implements OnInit {
+export class InputCreateMaterialComponent implements OnInit, OnChanges {
   @Output() close = new EventEmitter<any>();
+  @Input() object: Material;
+  material = new Material();
   form = new FormGroup({
     materialname: new FormControl('', [
       Validators.required,
@@ -34,6 +38,19 @@ export class InputCreateMaterialComponent implements OnInit {
   }
 
   onSubmit() {
+    if (this.form.invalid) {
+      this.form.markAsTouched();
+      return;
+    }
+    if (this.isCreate()) {
+      this.create();
+    } else {
+      this.update();
+    }
+    this.onClose();
+  }
+
+  create() {
     const material = {
       id: materialFixtures.length + 1,
       name: this.materialname.value,
@@ -41,5 +58,32 @@ export class InputCreateMaterialComponent implements OnInit {
       lastUpdate: 'today',
     };
     materialFixtures.push(material);
-    this.onClose();
-  }}
+  }
+
+  update() {
+    this.material.name = this.materialname.value;
+    const material = materialFixtures.find((e: Engine) => {
+      return this.material.id === e.id;
+    });
+    if (material) {
+      material.name = this.material.name;
+      material.author = this.material.author;
+      material.lastUpdate = 'now';
+    }
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    const object: SimpleChange = changes.object;
+    this.object = object.currentValue;
+    if (this.object) {
+      this.material = JSON.parse(JSON.stringify(this.object));
+      this.form.controls.materialname.setValue(this.material.name);
+    } else {
+      this.material = new Material();
+    }
+  }
+
+  isCreate() {
+    return this.material.id === null;
+  }
+}

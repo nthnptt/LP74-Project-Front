@@ -18,8 +18,8 @@
     <i class="fas fa-plus"></i>
   </div>
 </div>
-<app-more-material [material]="focusMaterial" (close)="onCloseMore()"></app-more-material>
-<app-input-create-material *ngIf="createdMaterialMode" (close)="createdMaterialMode=false"></app-input-create-material>
+<app-more-material (edit)="onEditMaterial($event)" [material]="focusMaterial" (close)="onCloseMore()"></app-more-material>
+<app-input-create-material [object]="editMaterial" *ngIf="createdMaterialMode" (close)="reset()"></app-input-create-material>
 
 <app-more-engine (edit)="onEditEngine($event)" [engine]="focusEngine" (close)="onCloseMore()"></app-more-engine>
 <app-input-create-engine  [object]="editEngine" *ngIf="createdEngineMode" (close)="reset()"></app-input-create-engine>

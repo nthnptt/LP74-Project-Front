@@ -10,8 +10,8 @@
   <tbody>
   <tr class="click" (click)="onClick(e, $event)" *ngFor="let e of elementFilter()">
     <td>{{e.name}}</td>
-    <td><i *ngFor="let inp of e.inputs">{{inp.material.name}}</i></td>
-    <td><i *ngFor="let out of e.outputs">{{out.material.name}}</i></td>
+    <td><i *ngFor="let inp of e.inputs">{{inp.material.name}} </i></td>
+    <td><i *ngFor="let out of e.outputs">{{out.material.name}} </i></td>
     <td>{{e.author}}</td>
   </tr>
   </tbody>
