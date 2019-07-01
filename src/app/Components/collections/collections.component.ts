@@ -24,7 +24,6 @@ export class CollectionsComponent implements OnInit {
 
   constructor() {
     this.mode = Mode.ENGINE;
-    this.createdEngineMode= true;
   }
 
   ngOnInit() {
