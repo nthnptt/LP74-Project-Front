@@ -1,9 +1,9 @@
-import {Component, EventEmitter, HostListener, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, HostListener, Input, OnChanges, OnInit, Output, SimpleChange, SimpleChanges} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {engineFixtures, materialFixtures} from '../../../../Model/Fixtures';
 import UserSession from '../../../../Model/UserSession';
 import {Engine} from '../../../../Model/Engine';
-import {Input} from '../../../../Model/Input';
+import {MaterialInput} from '../../../../Model/MaterialInput';
 import {OutputMat} from '../../../../Model/OutputMat';
 import {Material} from '../../../../Model/Material';
 
@@ -17,21 +17,22 @@ enum CreateMode {
   templateUrl: './input-create-engine.component.html',
   styleUrls: ['./input-create-engine.component.css', '../../../../forms.css']
 })
-export class InputCreateEngineComponent implements OnInit {
+export class InputCreateEngineComponent implements OnInit, OnChanges {
   @Output() close = new EventEmitter<any>();
+  @Input() object: Engine;
+  isCreate: boolean;
+  engine = new Engine();
 
   form = new FormGroup({
-    enginename: new FormControl('', [
+    enginename: new FormControl(this.engine.name, [
       Validators.required,
       Validators.minLength(3)
     ]),
   });
-  engine: Engine;
   isSelectedMaterial: boolean;
   createMode: CreateMode;
 
   constructor() {
-    this.engine = new Engine();
     this.createMode = null;
   }
 
@@ -43,6 +44,29 @@ export class InputCreateEngineComponent implements OnInit {
   }
 
   onSubmit() {
+    if (this.isCreate) {
+      this.create();
+    } else {
+      this.update();
+    }
+    this.onClose();
+  }
+
+  update() {
+    this.engine.name = this.enginename.value;
+    const engine = engineFixtures.find((e: Engine) => {
+      return this.engine.id === e.id;
+    });
+    if (engine) {
+      engine.name = this.engine.name;
+      engine.author = this.engine.author;
+      engine.lastUpdate = 'now';
+      engine.inputs = this.engine.inputs;
+      engine.outputs = this.engine.outputs;
+    }
+  }
+
+  create() {
     this.engine.name = this.enginename.value;
     this.engine.author = UserSession.get().getUser().name;
     this.engine.lastUpdate = 'now';
@@ -57,8 +81,8 @@ export class InputCreateEngineComponent implements OnInit {
     }
   }
 
-  onDeleteInput(inp: Input) {
-    this.engine.inputs = this.engine.inputs.filter((i: Input) => {
+  onDeleteInput(inp: MaterialInput) {
+    this.engine.inputs = this.engine.inputs.filter((i: MaterialInput) => {
       return i !== inp;
     });
   }
@@ -73,7 +97,7 @@ export class InputCreateEngineComponent implements OnInit {
     this.createMode = CreateMode.OUT;
   }
 
-  updateInputNumber(inp: Input, needed: number) {
+  updateInputNumber(inp: MaterialInput, needed: number) {
     inp.needed = needed;
   }
 
@@ -104,5 +128,18 @@ export class InputCreateEngineComponent implements OnInit {
 
   updateOutputTime(out: OutputMat, $event: number) {
     out.time = $event;
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    const object: SimpleChange = changes.object;
+    this.object = object.currentValue;
+    if (this.object) {
+      this.isCreate = false;
+      this.engine = JSON.parse(JSON.stringify(this.object));
+      this.form.controls.enginename.setValue(this.engine.name);
+    } else {
+      this.isCreate = true;
+      this.engine = new Engine();
+    }
   }
 }

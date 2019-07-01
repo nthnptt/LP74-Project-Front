@@ -4,7 +4,8 @@
   <div class="modal-dialog modal-dialog-centered modal-lg app-modal" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title" id="exampleModalLongTitle">Nouveau matériaux</h1>
+        <h1 class="modal-title" *ngIf="isCreate">Nouveau matériaux</h1>
+        <h1 class="modal-title" *ngIf="!isCreate">Modification matériaux</h1>
         <div class="close-modal" (click)="onClose()">
           <i class="fas fa-times"></i>
         </div>
@@ -27,7 +28,7 @@
             <div class="row inout-cont">
               <div class="col-6 in-cont">
                 <div class="row">
-                  <h4 class="mx-auto">Entrée</h4>
+                  <h4 class="mx-auto">Entrées</h4>
                 </div>
                 <div class="row in-line" *ngFor="let inp of engine.inputs">
                   <div class="delete-button" (click)="onDeleteInput(inp)">
@@ -59,7 +60,7 @@
                     <i class="far fa-trash-alt"></i>
                   </div>
                   <div class="col-12">
-                    <h5>{{out.material}}</h5>
+                    <h5>{{out.material.name}}</h5>
                   </div>
                   <div class="col-6">
                     Nombre
@@ -81,7 +82,8 @@
                 </div>
               </div>
             </div>
-            <button type="submit" class="btn-validation" [disabled]="!form.valid">Création</button>
+            <button type="submit" class="btn-validation" *ngIf="isCreate">Créer</button>
+            <button type="submit" class="btn-validation" *ngIf="!isCreate">Modifier</button>
           </form>
         </div>
       </div>
