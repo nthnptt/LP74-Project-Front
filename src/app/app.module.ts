@@ -26,6 +26,7 @@ import { InputCreateMaterialComponent } from './Components/collections/materials
 import { MoreEngineComponent } from './Components/collections/engine/more-engine/more-engine.component';
 import { InputCreateEngineComponent } from './Components/collections/engine/input-create-engine/input-create-engine.component';
 import { IncrementButtonComponent } from './increment-button/increment-button.component';
+import { ModalMaterialComponent } from './Components/collections/engine/input-create-engine/modal-material/modal-material.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { IncrementButtonComponent } from './increment-button/increment-button.co
     MoreEngineComponent,
     InputCreateEngineComponent,
     IncrementButtonComponent,
+    ModalMaterialComponent,
   ],
   imports: [
     BrowserModule,

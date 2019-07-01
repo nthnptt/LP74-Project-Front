@@ -3,8 +3,14 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {engineFixtures, materialFixtures} from '../../../../Model/Fixtures';
 import UserSession from '../../../../Model/UserSession';
 import {Engine} from '../../../../Model/Engine';
-import {Material} from '../../../../Model/Material';
 import {Input} from '../../../../Model/Input';
+import {OutputMat} from '../../../../Model/OutputMat';
+import {Material} from '../../../../Model/Material';
+
+enum CreateMode {
+  IN,
+  OUT
+}
 
 @Component({
   selector: 'app-input-create-engine',
@@ -21,9 +27,12 @@ export class InputCreateEngineComponent implements OnInit {
     ]),
   });
   engine: Engine;
+  isSelectedMaterial: boolean;
+  createMode: CreateMode;
 
   constructor() {
     this.engine = new Engine();
+    this.createMode = null;
   }
 
   ngOnInit() {
@@ -43,21 +52,57 @@ export class InputCreateEngineComponent implements OnInit {
 
   @HostListener('document:keyup.escape')
   onClose() {
-    this.close.emit();
+    if (!this.isSelectedMaterial) {
+      this.close.emit();
+    }
   }
 
-  onDeleteInput() {
+  onDeleteInput(inp: Input) {
+    this.engine.inputs = this.engine.inputs.filter((i: Input) => {
+      return i !== inp;
+    });
   }
 
   onAddInput() {
-    this.engine.inputs.push({material: materialFixtures[0], needed: 1});
+    this.isSelectedMaterial = true;
+    this.createMode = CreateMode.IN;
   }
 
   onAddOutput() {
-    this.engine.outputs.push({material: materialFixtures[0], number: 1, time: 0});
+    this.isSelectedMaterial = true;
+    this.createMode = CreateMode.OUT;
   }
 
   updateInputNumber(inp: Input, needed: number) {
     inp.needed = needed;
+  }
+
+  onDeleteOuput(out: OutputMat) {
+    this.engine.outputs = this.engine.outputs.filter((o: OutputMat) => {
+      return o !== out;
+    });
+  }
+
+  onSelectMaterial(material: Material) {
+    if (material.name) {
+      switch (this.createMode) {
+        case CreateMode.IN:
+          this.engine.inputs.push({material, needed: 1});
+          break;
+        case CreateMode.OUT:
+          this.engine.outputs.push({material, number: 1, time: 0});
+          break;
+      }
+      this.isSelectedMaterial = false;
+      this.createMode = null;
+    }
+  }
+
+  updateOutputNumber(out: OutputMat, $event: number) {
+    out.number = $event;
+  }
+
+  updateOutputTime(out: OutputMat, $event: number) {
+    out.time = $event;
   }
 }

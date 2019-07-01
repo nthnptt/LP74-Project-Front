@@ -2,13 +2,13 @@
   <thead>
   <tr>
     <th>Nom materiaux</th>
-    <th>Autheur</th>
+    <th *ngIf="expandMode">Auteur</th>
   </tr>
   </thead>
   <tbody>
   <tr class="click" (click)="onClick(m, $event)" *ngFor="let m of elementFilter()">
     <td>{{m.name}}</td>
-    <td>{{m.author}}</td>
+    <td *ngIf="expandMode">{{m.author}}</td>
   </tr>
   </tbody>
 </table>

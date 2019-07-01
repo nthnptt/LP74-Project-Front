@@ -1,5 +1,5 @@
 import {Entity} from './Entity';
-import {Output} from './Output';
+import {OutputMat} from './OutputMat';
 import {Input} from './Input';
 
 export class Engine extends Entity {
@@ -7,7 +7,7 @@ export class Engine extends Entity {
   author: string;
   lastUpdate: string;
   inputs: Input[];
-  outputs: Output[];
+  outputs: OutputMat[];
 
   constructor() {
     super();

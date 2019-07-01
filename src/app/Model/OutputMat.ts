@@ -1,6 +1,6 @@
 import {Material} from './Material';
 
-export class Output {
+export class OutputMat {
   material: Material;
   time: number;
   number: number;

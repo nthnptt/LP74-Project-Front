@@ -11,7 +11,9 @@ export class MaterialsComponent implements OnInit {
   materials: Material[];
   @Output() focus = new EventEmitter<Material>();
 
-  @Input() filter: string;
+  @Input() filter = '';
+  @Input() expandMode = true;
+
   constructor() {
     this.materials = materialFixtures;
   }
