@@ -10,7 +10,6 @@ import UserSession from '../../../../Model/UserSession';
 })
 export class InputCreateMaterialComponent implements OnInit {
   @Output() close = new EventEmitter<any>();
-
   form = new FormGroup({
     materialname: new FormControl('', [
       Validators.required,

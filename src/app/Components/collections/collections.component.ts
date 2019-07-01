@@ -1,5 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {Material} from '../../Model/Material';
+import {Engine} from '../../Model/Engine';
+
+enum Mode {
+  CONVEYER,
+  MATERIAL,
+  ENGINE
+}
 
 @Component({
   selector: 'app-collections',
@@ -9,9 +16,15 @@ import {Material} from '../../Model/Material';
 export class CollectionsComponent implements OnInit {
   filter = '';
   focusMaterial: Material;
+  focusEngine: Engine;
+  createdEngineMode: boolean;
   createdMaterialMode: boolean;
+  mode: Mode;
+  Mode = Mode;
 
   constructor() {
+    this.mode = Mode.ENGINE;
+    this.createdEngineMode= true;
   }
 
   ngOnInit() {
@@ -21,6 +34,9 @@ export class CollectionsComponent implements OnInit {
     if (this.focusMaterial) {
       this.focusMaterial = null;
     }
+    if (this.focusEngine) {
+      this.focusEngine = null;
+    }
   }
 
 
@@ -28,7 +44,32 @@ export class CollectionsComponent implements OnInit {
     this.focusMaterial = m;
   }
 
-  onNewMaterial() {
-    this.createdMaterialMode = true;
+  onNew() {
+    switch (this.mode) {
+      case Mode.ENGINE:
+        this.createdEngineMode = true;
+        break;
+      case Mode.MATERIAL:
+        this.createdMaterialMode = true;
+        break;
+    }
+  }
+
+  onChangeMode(mode: Mode) {
+    this.mode = mode;
+    this.reset();
+  }
+
+  onFocusEngine(engine: Engine) {
+    this.reset();
+    this.focusEngine = engine;
+  }
+
+  reset() {
+    this.createdMaterialMode = false;
+    this.focusMaterial = null;
+    this.focusEngine = null;
+    this.createdEngineMode = false;
+    this.filter = '';
   }
 }

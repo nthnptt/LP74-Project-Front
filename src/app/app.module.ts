@@ -23,6 +23,9 @@ import {EditProjectComponent} from './Components/edit-project/edit-project.compo
 import { CollectionsComponent } from './Components/collections/collections.component';
 import { MoreMaterialComponent } from './Components/collections/materials/more-material/more-material.component';
 import { InputCreateMaterialComponent } from './Components/collections/materials/input-create-material/input-create-material.component';
+import { MoreEngineComponent } from './Components/collections/engine/more-engine/more-engine.component';
+import { InputCreateEngineComponent } from './Components/collections/engine/input-create-engine/input-create-engine.component';
+import { IncrementButtonComponent } from './increment-button/increment-button.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +49,9 @@ import { InputCreateMaterialComponent } from './Components/collections/materials
     CollectionsComponent,
     MoreMaterialComponent,
     InputCreateMaterialComponent,
+    MoreEngineComponent,
+    InputCreateEngineComponent,
+    IncrementButtonComponent,
   ],
   imports: [
     BrowserModule,

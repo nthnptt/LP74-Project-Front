@@ -1,0 +1,65 @@
+.modal-body, .modal-header, .modal-footer {
+  border: none;
+}
+
+.modal-header {
+  text-align: center;
+}
+
+.close-modal {
+  border-radius: 100%;
+  font-size: 18px;
+  padding: 2px 10px;
+  background-color: #46e4c1;
+  color: #3f3e4c;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.modal-title {
+  margin: auto;
+}
+
+.app-modal .modal-content {
+  color: #46e4c1;
+  background-color: #3f3e4c;
+  border: solid 2px #46e4c1;
+  padding: 0 50px;
+  position: relative;
+}
+
+.inout-cont {
+  height: 400px;
+  padding-top: 10px;
+  margin-bottom: 10px;
+  border-top: 2px solid #46e4c1;
+  border-bottom: 2px solid #46e4c1;
+  overflow-y: scroll;
+}
+
+.in-line {
+  background: #4e4d5f;
+  padding: 5px;
+  margin: 2px 2px;
+  position: relative;
+}
+.in-line .delete-button {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  color: #EFBCD5;
+}
+
+.control-button {
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  font-size: 18px;
+  background-color: #46e4c1;
+  color: #ffffff;
+  text-align: center;
+  line-height: 30px;
+  box-shadow: 0px 2px 10px 0px rgba(39, 38, 47, 0.75);
+  margin-top: 3px;
+}
