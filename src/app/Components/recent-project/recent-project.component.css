@@ -1,0 +1,23 @@
+.recentprojectcontainer {
+  height: 200px;
+  padding: 10px 20px;
+}
+
+.projects {
+  font-size: 48px;
+  display: table;
+  background-color: #46e4c1;
+  color: #3f3e4c;
+  line-height: 100%;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  user-select: none;
+  box-shadow: 0px 1px 15px 0px rgba(39, 38, 47, 0.75);
+
+}
+.projects>div{
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
