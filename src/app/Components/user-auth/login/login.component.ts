@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import UserSession from '../../../Model/UserSession';
 import {User} from '../../../Model/User';
@@ -22,18 +22,7 @@ export class LoginComponent implements OnInit {
     ]),
   });
 
-  constructor(private router: Router) {}
-
-  ngOnInit() {
-  }
-
-  onSubmit() {
-    const user = {
-      name : this.username.value,
-      password : this.password.value
-    };
-    console.log(user);
-    this.connect();
+  constructor(private router: Router) {
   }
 
   get username() {
@@ -42,6 +31,18 @@ export class LoginComponent implements OnInit {
 
   get password() {
     return this.userform.get('password');
+  }
+
+  ngOnInit() {
+  }
+
+  onSubmit() {
+    const user = {
+      name: this.username.value,
+      password: this.password.value
+    };
+    console.log(user);
+    this.connect();
   }
 
   private connect() {

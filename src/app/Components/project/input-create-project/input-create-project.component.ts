@@ -22,16 +22,16 @@ export class InputCreateProjectComponent implements OnInit {
 
   }
 
+  get projectname() {
+    return this.form.get('projectname');
+  }
+
   ngOnInit() {
   }
 
   @HostListener('document:keyup.escape')
   onClose() {
     this.close.emit();
-  }
-
-  get projectname() {
-    return this.form.get('projectname');
   }
 
   onSubmit() {

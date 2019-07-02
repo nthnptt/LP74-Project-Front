@@ -1,17 +1,17 @@
 <div class="row toolscontainer">
-  <div class="col-4 text-center toolsbox" (click)="onNewProject()">
+  <div (click)="onNewProject()" class="col-4 text-center toolsbox">
     <div class="tools">
       <i class="fas fa-plus"></i>
     </div>
     <span>Nouveau projet</span>
   </div>
-  <div routerLink="/projects" class="col-4 text-center toolsbox">
-    <div  class="tools">
+  <div class="col-4 text-center toolsbox" routerLink="/projects">
+    <div class="tools">
       <i class="fas fa-search"></i>
     </div>
     <span>Explorer les projets</span>
   </div>
-  <div routerLink="/collection" class="col-4 text-center toolsbox">
+  <div class="col-4 text-center toolsbox" routerLink="/collection">
     <div class="tools">
       <i class="fas fa-th-list"></i>
     </div>

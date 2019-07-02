@@ -5,59 +5,12 @@
   height: calc(100vh - 100px);
 }
 
-.pages-fixeonbar {
-  padding: 0;
-}
-
-.workspace {
-  height: calc(100vh - 100px);
-}
 
 .row {
   margin: 0;
 }
 
 .collections {
-}
-
-.mytooltip {
-  width: 100%;
-  height: 50px;
-  position: absolute;
-  color: white;
-  bottom: 0;
-  left: 0;
-  background: #46e4c1;
-}
-
-.mytooltip svg {
-  height: 30px;
-  fill: #3f3e4c;
-}
-
-.mytooltip > * {
-  padding: 10px 0;
-}
-
-.mytooltip > *:hover {
-  background: #38B79B;
-  fill: #ffffff;
-}
-
-.mytooltip-active > svg {
-  fill: #ffffff;
-}
-
-.mytooltip-active {
-  background: #38B79B;
-}
-
-.mytooltip-active:hover > svg {
-  fill: #ffffff;
-}
-
-.mytooltip-cat:hover > svg {
-  fill: #ffffff;
 }
 
 .search-group input {
@@ -80,4 +33,35 @@
 .search-group .input-group-text {
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
+}
+
+.machine-list {
+  overflow-y: scroll;
+  height: calc(60vh - 100px);
+}
+
+.detail-list {
+  overflow-y: scroll;
+  height: calc(40vh - 100px);
+  margin-top: 5px;
+  padding-top: 5px;
+  border-top: solid 2px #46e4c1;
+  color: #ffffff;
+}
+
+.color-badge {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+}
+
+.color-badge-red {
+  background-color: red;
+}
+
+.outputline {
+  padding-left: 0;
+}
+.modelinkeditor{
+  cursor: crosshair;
 }

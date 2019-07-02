@@ -6,7 +6,7 @@
   </tr>
   </thead>
   <tbody>
-  <tr class="click" (click)="onClick(m, $event)" *ngFor="let m of elementFilter()">
+  <tr (click)="onClick(m, $event)" *ngFor="let m of elementFilter()" class="click">
     <td>{{m.name}}</td>
     <td *ngIf="expandMode">{{m.author}}</td>
   </tr>

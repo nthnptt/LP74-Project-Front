@@ -1,9 +1,9 @@
 import {Component, EventEmitter, HostListener, Input, OnChanges, OnInit, Output, SimpleChange, SimpleChanges} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {engineFixtures, materialFixtures} from '../../../../Model/Fixtures';
+import {materialFixtures} from '../../../../Model/Fixtures';
 import UserSession from '../../../../Model/UserSession';
 import {Material} from '../../../../Model/Material';
-import {Engine} from '../../../../Model/Engine';
+import {Machine} from '../../../../Model/Machine';
 
 @Component({
   selector: 'app-input-create-material',
@@ -25,16 +25,16 @@ export class InputCreateMaterialComponent implements OnInit, OnChanges {
 
   }
 
+  get materialname() {
+    return this.form.get('materialname');
+  }
+
   ngOnInit() {
   }
 
   @HostListener('document:keyup.escape')
   onClose() {
     this.close.emit();
-  }
-
-  get materialname() {
-    return this.form.get('materialname');
   }
 
   onSubmit() {
@@ -62,7 +62,7 @@ export class InputCreateMaterialComponent implements OnInit, OnChanges {
 
   update() {
     this.material.name = this.materialname.value;
-    const material = materialFixtures.find((e: Engine) => {
+    const material = materialFixtures.find((e: Machine) => {
       return this.material.id === e.id;
     });
     if (material) {

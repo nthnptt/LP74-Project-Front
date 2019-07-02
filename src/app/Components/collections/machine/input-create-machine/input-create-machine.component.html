@@ -1,0 +1,101 @@
+<div (keyup.escape)="onClose()" aria-hidden="true" aria-labelledby="exampleModalCenterTitle"
+     class="modal fade show input-create-modal" id="exampleModalCenter" role="dialog"
+     style="display: block" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered modal-lg app-modal" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 *ngIf="isCreate" class="modal-title">Novelle machine</h1>
+        <h1 *ngIf="!isCreate" class="modal-title">Modification machine</h1>
+        <div (click)="onClose()" class="close-modal">
+          <i class="fas fa-times"></i>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <form (ngSubmit)="onSubmit()" [formGroup]="form" class="form-black col-12">
+            <div class="form-group">
+              <label for="unamemachine">Nom de la machine : </label>
+              <input aria-describedby="nameHelp" class="form-control" formControlName="machinename" id="unamemachine"
+                     placeholder="Entrer un nom" type="text">
+              <span *ngIf="machinename.invalid && (machinename.dirty || machinename.touched || form.touched)"
+                    class="badge-error">
+            <i class="fas fa-exclamation"></i>
+          </span>
+              <div *ngIf="machinename.invalid && (machinename.dirty || machinename.touched || form.touched)"
+                   class="tooltip-error">
+                <p *ngIf="machinename.errors.minlength">Votre pseudo doit comporter 3 caractères !</p>
+                <p *ngIf="machinename.errors.required">Champs obligatoire !</p>
+              </div>
+            </div>
+            <div class="row inout-cont">
+              <div class="col-6 in-cont">
+                <div class="row">
+                  <h4 class="mx-auto">Entrées</h4>
+                </div>
+                <div *ngFor="let inp of machine.inputs" class="row in-line">
+                  <div (click)="onDeleteInput(inp)" class="delete-button">
+                    <i class="far fa-trash-alt"></i>
+                  </div>
+                  <div class="col-12">
+                    <h5>{{inp.material.name}}</h5>
+                  </div>
+                  <div class="col-6">
+                    Nombre
+                  </div>
+                  <div class="col-6">
+                    <app-increment-button (update)="updateInputNumber(inp, $event)" [defaultValue]="inp.needed"
+                                          lowLimit="1"></app-increment-button>
+                  </div>
+                </div>
+                <div class="row">
+                  <div (click)="onAddInput()" class="mx-auto control-button">
+                    <i class="fas fa-plus"></i>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-6 out-cont">
+                <div class="row">
+                  <h4 class="mx-auto">Sorties</h4>
+                </div>
+                <div *ngFor="let out of machine.outputs" class="row in-line">
+                  <div (click)="onDeleteOuput(out)" class="delete-button">
+                    <i class="far fa-trash-alt"></i>
+                  </div>
+                  <div class="col-12">
+                    <h5>{{out.material.name}}</h5>
+                  </div>
+                  <div class="col-6">
+                    Nombre
+                  </div>
+                  <div class="col-6">
+                    <app-increment-button (update)="updateOutputNumber(out, $event)" [defaultValue]="out.number"
+                                          lowLimit="1"></app-increment-button>
+                  </div>
+                  <div class="col-6">
+                    Temps
+                  </div>
+                  <div class="col-6">
+                    <app-increment-button (update)="updateOutputTime(out, $event)" [defaultValue]="out.time"
+                                          lowLimit="0"></app-increment-button>
+                  </div>
+                </div>
+                <div class="row">
+                  <div (click)="onAddOutput()" class="mx-auto control-button">
+                    <i class="fas fa-plus"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <input *ngIf="isCreate" class="btn-validation" type="submit" value="Créer">
+            <input *ngIf="!isCreate" class="btn-validation" type="submit" value="Modifier">
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>
+<app-modal-material (close)="isSelectedMaterial=false" (select)="onSelectMaterial($event)"
+                    *ngIf="isSelectedMaterial"></app-modal-material>

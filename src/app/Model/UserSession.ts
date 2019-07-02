@@ -3,16 +3,16 @@ import {environment} from '../../environments/environment';
 import {User} from './User';
 
 export default class UserSession {
-  protected constructor() {
-    this.token = null;
-    this.connected = false;
-  }
-
   static session: UserSession;
   public connected: boolean;
   private user: User;
   private token: string;
   private lastPathRequest: string;
+
+  protected constructor() {
+    this.token = null;
+    this.connected = false;
+  }
 
   static get(): UserSession {
     if (!UserSession.session) {

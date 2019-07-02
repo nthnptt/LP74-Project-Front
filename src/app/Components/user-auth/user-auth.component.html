@@ -1,8 +1,8 @@
 <div class="main container-fluid">
   <div [ngStyle]="{'transform': 'translateX(' + step + ')'}" class="forms row align-items-center">
-    <app-login class="col-4" [focus]="focus!==Focus.LOGIN"></app-login>
+    <app-login [focus]="focus!==Focus.LOGIN" class="col-4"></app-login>
     <div class="col-2 text-center changemode">
-      <div class="separator" (click)="moveFocus()">
+      <div (click)="moveFocus()" class="separator">
         <i [ngStyle]="{'transform': focus==Focus.REGISTER ? 'rotate(180deg)':'rotate(0deg)'}"
            class="fas fa-chevron-right"></i>
       </div>
@@ -11,7 +11,7 @@
         <p *ngIf="focus==Focus.LOGIN">Pas de compte ?</p>
       </div>
     </div>
-    <app-register class="col-4" [focus]="focus!==Focus.REGISTER"></app-register>
+    <app-register [focus]="focus!==Focus.REGISTER" class="col-4"></app-register>
   </div>
 </div>
 

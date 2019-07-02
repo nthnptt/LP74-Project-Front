@@ -16,7 +16,8 @@
   box-shadow: 0px 1px 15px 0px rgba(39, 38, 47, 0.75);
 
 }
-.projects>div{
+
+.projects > div {
   display: table-cell;
   vertical-align: middle;
   text-align: center;

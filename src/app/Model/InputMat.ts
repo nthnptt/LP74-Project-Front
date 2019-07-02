@@ -1,6 +1,6 @@
 import {Material} from './Material';
 
-export class MaterialInput {
+export class InputMat {
   material: Material;
   needed: number;
 }

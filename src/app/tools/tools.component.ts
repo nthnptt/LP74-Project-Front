@@ -14,7 +14,7 @@ export class ToolsComponent implements OnInit {
   }
 
   onNewProject() {
-    console.log('s1')
+    console.log('s1');
     this.newProject.emit();
   }
 

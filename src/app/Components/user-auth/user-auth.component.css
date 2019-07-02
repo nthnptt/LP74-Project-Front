@@ -20,9 +20,11 @@
   text-align: center;
   vertical-align: center;
 }
-.separator>i {
+
+.separator > i {
   transition: transform 0.5s ease-in-out;
 }
-.changemode{
+
+.changemode {
   color: #46e4c1;
 }

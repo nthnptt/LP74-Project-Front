@@ -1,6 +1,5 @@
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import UserSession from '../../Model/UserSession';
-import {User} from '../../Model/User';
 import {Router} from '@angular/router';
 
 @Component({

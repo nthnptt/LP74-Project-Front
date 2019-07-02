@@ -11,5 +11,8 @@ body {
  padding-top: 110px;
 }
 .pages-fixeonbar{
-  margin-top: 100px;
+  padding-top: 100px;
+}
+color-profile{
+  color: #3f3e4c;
 }

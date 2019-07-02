@@ -10,7 +10,8 @@ export class MoreProjectsComponent implements OnInit {
   @Input() project: Project;
   @Output() close = new EventEmitter<any>();
 
-  constructor() {}
+  constructor() {
+  }
 
   ngOnInit() {
   }

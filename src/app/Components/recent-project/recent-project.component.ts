@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Project} from '../../Model/Project';
 import {projectsFixtures} from '../../Model/Fixtures';
 
@@ -9,6 +9,7 @@ import {projectsFixtures} from '../../Model/Fixtures';
 })
 export class RecentProjectComponent implements OnInit {
   projects: Project[];
+
   constructor() {
     this.projects = projectsFixtures;
   }

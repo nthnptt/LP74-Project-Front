@@ -1,9 +1,9 @@
 import {Component, EventEmitter, HostListener, Input, OnChanges, OnInit, Output, SimpleChange, SimpleChanges} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {engineFixtures, materialFixtures} from '../../../../Model/Fixtures';
+import {machineFixtures} from '../../../../Model/Fixtures';
 import UserSession from '../../../../Model/UserSession';
-import {Engine} from '../../../../Model/Engine';
-import {MaterialInput} from '../../../../Model/MaterialInput';
+import {Machine} from '../../../../Model/Machine';
+import {InputMat} from '../../../../Model/InputMat';
 import {OutputMat} from '../../../../Model/OutputMat';
 import {Material} from '../../../../Model/Material';
 
@@ -13,17 +13,17 @@ enum CreateMode {
 }
 
 @Component({
-  selector: 'app-input-create-engine',
-  templateUrl: './input-create-engine.component.html',
-  styleUrls: ['./input-create-engine.component.css', '../../../../forms.css']
+  selector: 'app-input-create-machine',
+  templateUrl: './input-create-machine.component.html',
+  styleUrls: ['./input-create-machine.component.css', '../../../../forms.css']
 })
-export class InputCreateEngineComponent implements OnInit, OnChanges {
+export class InputCreateMachineComponent implements OnInit, OnChanges {
   @Output() close = new EventEmitter<any>();
-  @Input() object: Engine;
-  engine = new Engine();
+  @Input() object: Machine;
+  machine = new Machine();
 
   form = new FormGroup({
-    enginename: new FormControl(this.engine.name, [
+    machinename: new FormControl(this.machine.name, [
       Validators.required,
       Validators.minLength(3)
     ]),
@@ -35,11 +35,11 @@ export class InputCreateEngineComponent implements OnInit, OnChanges {
     this.createMode = null;
   }
 
-  ngOnInit() {
+  get machinename() {
+    return this.form.get('machinename');
   }
 
-  get enginename() {
-    return this.form.get('enginename');
+  ngOnInit() {
   }
 
   onSubmit() {
@@ -56,25 +56,25 @@ export class InputCreateEngineComponent implements OnInit, OnChanges {
   }
 
   update() {
-    this.engine.name = this.enginename.value;
-    const engine = engineFixtures.find((e: Engine) => {
-      return this.engine.id === e.id;
+    this.machine.name = this.machinename.value;
+    const machine = machineFixtures.find((e: Machine) => {
+      return this.machine.id === e.id;
     });
-    if (engine) {
-      engine.name = this.engine.name;
-      engine.author = this.engine.author;
-      engine.lastUpdate = 'now';
-      engine.inputs = this.engine.inputs;
-      engine.outputs = this.engine.outputs;
+    if (machine) {
+      machine.name = this.machine.name;
+      machine.author = this.machine.author;
+      machine.lastUpdate = 'now';
+      machine.inputs = this.machine.inputs;
+      machine.outputs = this.machine.outputs;
     }
   }
 
   create() {
-    this.engine.name = this.enginename.value;
-    this.engine.author = UserSession.get().getUser().name;
-    this.engine.lastUpdate = 'now';
+    this.machine.name = this.machinename.value;
+    this.machine.author = UserSession.get().getUser().name;
+    this.machine.lastUpdate = 'now';
     this.onClose();
-    engineFixtures.push(this.engine);
+    machineFixtures.push(this.machine);
   }
 
   @HostListener('document:keyup.escape')
@@ -84,8 +84,8 @@ export class InputCreateEngineComponent implements OnInit, OnChanges {
     }
   }
 
-  onDeleteInput(inp: MaterialInput) {
-    this.engine.inputs = this.engine.inputs.filter((i: MaterialInput) => {
+  onDeleteInput(inp: InputMat) {
+    this.machine.inputs = this.machine.inputs.filter((i: InputMat) => {
       return i !== inp;
     });
   }
@@ -100,12 +100,12 @@ export class InputCreateEngineComponent implements OnInit, OnChanges {
     this.createMode = CreateMode.OUT;
   }
 
-  updateInputNumber(inp: MaterialInput, needed: number) {
+  updateInputNumber(inp: InputMat, needed: number) {
     inp.needed = needed;
   }
 
   onDeleteOuput(out: OutputMat) {
-    this.engine.outputs = this.engine.outputs.filter((o: OutputMat) => {
+    this.machine.outputs = this.machine.outputs.filter((o: OutputMat) => {
       return o !== out;
     });
   }
@@ -114,10 +114,10 @@ export class InputCreateEngineComponent implements OnInit, OnChanges {
     if (material.name) {
       switch (this.createMode) {
         case CreateMode.IN:
-          this.engine.inputs.push({material, needed: 1});
+          this.machine.inputs.push({material, needed: 1});
           break;
         case CreateMode.OUT:
-          this.engine.outputs.push({material, number: 1, time: 0});
+          this.machine.outputs.push({material, number: 1, time: 0});
           break;
       }
       this.isSelectedMaterial = false;
@@ -137,14 +137,14 @@ export class InputCreateEngineComponent implements OnInit, OnChanges {
     const object: SimpleChange = changes.object;
     this.object = object.currentValue;
     if (this.object) {
-      this.engine = JSON.parse(JSON.stringify(this.object));
-      this.form.controls.enginename.setValue(this.engine.name);
+      this.machine = JSON.parse(JSON.stringify(this.object));
+      this.form.controls.machinename.setValue(this.machine.name);
     } else {
-      this.engine = new Engine();
+      this.machine = new Machine();
     }
   }
 
   private isCreate() {
-    return this.engine.id === null;
+    return this.machine.id === null;
   }
 }

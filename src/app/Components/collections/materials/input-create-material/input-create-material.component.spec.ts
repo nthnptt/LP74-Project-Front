@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { InputCreateMaterialComponent } from './input-create-material.component';
+import {InputCreateMaterialComponent} from './input-create-material.component';
 
 describe('InputCreateMaterialComponent', () => {
   let component: InputCreateMaterialComponent;
@@ -8,9 +8,9 @@ describe('InputCreateMaterialComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ InputCreateMaterialComponent ]
+      declarations: [InputCreateMaterialComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
