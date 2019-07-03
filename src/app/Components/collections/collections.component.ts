@@ -2,6 +2,7 @@ import {Material} from '../../Model/Material';
 import {Machine} from '../../Model/Machine';
 import {Component, EventEmitter, Input, OnInit} from '@angular/core';
 import {MaterialService} from "../../Services/material.service";
+import {MachineService} from "../../Services/machine.service";
 
 enum Mode {
   CONVEYER,
@@ -95,6 +96,14 @@ export class CollectionsComponent implements OnInit {
 
   onDeleteMaterial(e: Material) {
     const service = new MaterialService();
+    service.delete(e);
+    this.onCloseMore();
+    this.reset();
+  }
+
+  onDeleteMachine(e: Machine) {
+    console.log(e)
+    const service = new MachineService();
     service.delete(e);
     this.onCloseMore();
     this.reset();

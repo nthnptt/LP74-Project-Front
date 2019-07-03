@@ -57,7 +57,6 @@ export class MaterialService {
       element.name = m.name;
       element.author = m.author;
       element.lastUpdate = m.lastUpdate;
-      console.log(element);
       this.save(storage);
     }
   }

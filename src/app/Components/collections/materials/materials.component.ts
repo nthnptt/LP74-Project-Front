@@ -27,9 +27,11 @@ export class MaterialsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.needUpdate.subscribe(() => {
-      this.refreshData();
-    });
+    if(this.needUpdate){
+      this.needUpdate.subscribe(() => {
+        this.refreshData();
+      });
+    }
   }
 
   onClick(material: Material, $event) {
