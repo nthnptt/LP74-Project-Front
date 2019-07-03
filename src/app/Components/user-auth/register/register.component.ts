@@ -1,5 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {User} from "../../../Model/User";
+import {UserService} from "../../../Services/user.service";
 
 @Component({
   selector: 'app-register',
@@ -7,6 +9,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
   styleUrls: ['./register.component.css', '../../../forms.css']
 })
 export class RegisterComponent implements OnInit {
+  @Output() submitOK = new EventEmitter<any>();
   @Input() focus: boolean;
   userform = new FormGroup({
     username: new FormControl('', [
@@ -18,8 +21,10 @@ export class RegisterComponent implements OnInit {
       Validators.minLength(3)
     ]),
   });
+  private service: UserService;
 
   constructor() {
+    this.service = new UserService();
   }
 
   get username() {
@@ -34,10 +39,17 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
-    const user = {
-      name: this.username.value,
-      password: this.password.value
-    };
-    console.log(user);
+    const user = new User();
+    user.password = this.password.value;
+    user.name = this.username.value;
+    try {
+      this.service.post(user);
+      this.username.setValue('');
+      this.password.setValue('');
+      this.submitOK.emit();
+    } catch (e) {
+
+    }
+
   }
 }
