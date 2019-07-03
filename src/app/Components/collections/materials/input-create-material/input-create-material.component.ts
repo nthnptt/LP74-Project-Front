@@ -4,6 +4,7 @@ import {materialFixtures} from '../../../../Model/Fixtures';
 import UserSession from '../../../../Model/UserSession';
 import {Material} from '../../../../Model/Material';
 import {Machine} from '../../../../Model/Machine';
+import {MaterialService} from '../../../../Services/material.service';
 
 @Component({
   selector: 'app-input-create-material',
@@ -20,6 +21,7 @@ export class InputCreateMaterialComponent implements OnInit, OnChanges {
       Validators.minLength(3)
     ]),
   });
+  private service: MaterialService;
 
   constructor() {
 
@@ -30,6 +32,7 @@ export class InputCreateMaterialComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
+    this.service = new MaterialService();
   }
 
   @HostListener('document:keyup.escape')
@@ -51,25 +54,20 @@ export class InputCreateMaterialComponent implements OnInit, OnChanges {
   }
 
   create() {
-    const material = {
-      id: materialFixtures.length + 1,
-      name: this.materialname.value,
-      author: UserSession.get().getUser().name,
-      lastUpdate: 'today',
-    };
-    materialFixtures.push(material);
+    const material = new Material();
+    material.name = this.materialname.value;
+    material.author = UserSession.get().getUser().name;
+    material.lastUpdate = 'today';
+    this.service.post(material);
   }
 
   update() {
-    this.material.name = this.materialname.value;
-    const material = materialFixtures.find((e: Machine) => {
-      return this.material.id === e.id;
-    });
-    if (material) {
-      material.name = this.material.name;
-      material.author = this.material.author;
-      material.lastUpdate = 'now';
-    }
+    const material = new Material();
+    material.name = this.materialname.value;
+    material.author = this.material.author;
+    material.lastUpdate = 'now';
+    material.id = this.material.id;
+    this.service.put(material);
   }
 
   ngOnChanges(changes: SimpleChanges) {

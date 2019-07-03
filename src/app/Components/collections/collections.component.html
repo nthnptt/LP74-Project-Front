@@ -12,14 +12,14 @@
       </div>
     </div>
   </div>
-  <app-materials (focus)="onFocusMaterial($event)" *ngIf="mode===Mode.MATERIAL" [filter]="filter"></app-materials>
-  <app-machine (focus)="onFocusMachine($event)" *ngIf="mode===Mode.ENGINE" [filter]="filter"></app-machine>
+  <app-materials [needUpdate]="needUpdate" *ngIf="mode===Mode.MATERIAL" (focus)="onFocusMaterial($event)" [filter]="filter"></app-materials>  <app-machine (focus)="onFocusMachine($event)" *ngIf="mode===Mode.ENGINE" [filter]="filter"></app-machine>
   <div (click)="onNew()" class="float-control-button">
     <i class="fas fa-plus"></i>
   </div>
 </div>
-<app-more-material (close)="onCloseMore()" (edit)="onEditMaterial($event)"
-                   [material]="focusMaterial"></app-more-material>
+<app-more-material  (delete)="onDeleteMaterial($event)" (edit)="onEditMaterial($event)"
+                    [material]="focusMaterial" (close)="onCloseMore()"></app-more-material>
+
 <app-input-create-material (close)="reset()" *ngIf="createdMaterialMode"
                            [object]="editMaterial"></app-input-create-material>
 
