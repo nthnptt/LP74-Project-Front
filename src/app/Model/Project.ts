@@ -1,4 +1,4 @@
-import {MaterialInput} from './MaterialInput';
+import {InputMat} from './InputMat';
 import {OutputMat} from './OutputMat';
 
 export class Project {
@@ -6,6 +6,6 @@ export class Project {
   name: string;
   author: string;
   lastUpdate: string;
-  inputs: MaterialInput[];
+  inputs: InputMat[];
   outputs: OutputMat[];
 }

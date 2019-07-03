@@ -1,4 +1,4 @@
 <p>
   Let's go to authentification !
-  <input (keydown.enter)="setCookie()" [value]="test" (input)="test = $event.target.value">
+  <input (input)="test = $event.target.value" (keydown.enter)="setCookie()" [value]="test">
 </p>

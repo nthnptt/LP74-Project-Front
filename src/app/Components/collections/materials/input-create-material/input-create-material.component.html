@@ -1,31 +1,33 @@
-<div (keyup.escape)="onClose()" style="display: block" class="modal fade show input-create-modal"
-     id="exampleModalCenter" tabindex="-1" role="dialog"
-     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div (keyup.escape)="onClose()" aria-hidden="true" aria-labelledby="exampleModalCenterTitle"
+     class="modal fade show input-create-modal" id="exampleModalCenter" role="dialog"
+     style="display: block" tabindex="-1">
   <div class="modal-dialog modal-dialog-centered modal-lg app-modal" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title" *ngIf="isCreate()">Nouveau matériaux</h1>
-        <h1 class="modal-title" *ngIf="!isCreate()">Modifier matériaux</h1>
-        <div class="close-modal" (click)="onClose()">
+        <h1 *ngIf="isCreate()" class="modal-title">Nouveau matériaux</h1>
+        <h1 *ngIf="!isCreate()" class="modal-title">Modifier matériaux</h1>
+        <div (click)="onClose()" class="close-modal">
           <i class="fas fa-times"></i>
         </div>
       </div>
       <div class="modal-body">
-        <form class="form-black" [formGroup]="form" (ngSubmit)="onSubmit()">
+        <form (ngSubmit)="onSubmit()" [formGroup]="form" class="form-black">
           <div class="form-group">
             <label for="unamematerial">Nom du Matériau : </label>
-            <input formControlName="materialname" type="text" class="form-control" id="unamematerial"
-                   aria-describedby="nameHelp" placeholder="Entrer un nom">
-            <span *ngIf="materialname.invalid && (materialname.dirty || form.touched || materialname.touched)" class="badge-error">
+            <input aria-describedby="nameHelp" class="form-control" formControlName="materialname" id="unamematerial"
+                   placeholder="Entrer un nom" type="text">
+            <span *ngIf="materialname.invalid && (materialname.dirty || form.touched || materialname.touched)"
+                  class="badge-error">
             <i class="fas fa-exclamation"></i>
           </span>
-            <div class="tooltip-error" *ngIf="materialname.invalid && (materialname.dirty || form.touched || materialname.touched)">
+            <div *ngIf="materialname.invalid && (materialname.dirty || form.touched || materialname.touched)"
+                 class="tooltip-error">
               <p *ngIf="materialname.errors.minlength">Votre pseudo doit comporter 3 caractères !</p>
               <p *ngIf="materialname.errors.required">Champs obligatoire !</p>
             </div>
           </div>
-          <input type="submit" class="btn-validation" *ngIf="isCreate()" value="Création">
-          <input type="submit" class="btn-validation" *ngIf="!isCreate()" value="Modifier">
+          <input *ngIf="isCreate()" class="btn-validation" type="submit" value="Création">
+          <input *ngIf="!isCreate()" class="btn-validation" type="submit" value="Modifier">
         </form>
       </div>
       <div class="modal-footer">

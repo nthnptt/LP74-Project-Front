@@ -1,8 +1,7 @@
 import {Component} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
 import UserSession from './Model/UserSession';
 import {Router} from '@angular/router';
-import { Location } from '@angular/common';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-root',

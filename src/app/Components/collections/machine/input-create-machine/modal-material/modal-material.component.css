@@ -28,7 +28,8 @@
   padding: 0 50px;
   position: relative;
 }
-.modal-body{
+
+.modal-body {
   height: 400px;
   overflow-y: scroll;
 }

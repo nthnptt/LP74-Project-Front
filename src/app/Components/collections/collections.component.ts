@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Material} from '../../Model/Material';
-import {Engine} from '../../Model/Engine';
+import {Machine} from '../../Model/Machine';
 
 enum Mode {
   CONVEYER,
@@ -16,12 +16,12 @@ enum Mode {
 export class CollectionsComponent implements OnInit {
   filter = '';
   focusMaterial: Material;
-  focusEngine: Engine;
-  createdEngineMode: boolean;
+  focusMachine: Machine;
+  createdMachineMode: boolean;
   createdMaterialMode: boolean;
   mode: Mode;
   Mode = Mode;
-  editEngine: Engine;
+  editMachine: Machine;
   editMaterial: Material;
 
   constructor() {
@@ -35,8 +35,8 @@ export class CollectionsComponent implements OnInit {
     if (this.focusMaterial) {
       this.focusMaterial = null;
     }
-    if (this.focusEngine) {
-      this.focusEngine = null;
+    if (this.focusMachine) {
+      this.focusMachine = null;
     }
   }
 
@@ -48,7 +48,7 @@ export class CollectionsComponent implements OnInit {
   onNew() {
     switch (this.mode) {
       case Mode.ENGINE:
-        this.createdEngineMode = true;
+        this.createdMachineMode = true;
         break;
       case Mode.MATERIAL:
         this.createdMaterialMode = true;
@@ -61,32 +61,32 @@ export class CollectionsComponent implements OnInit {
     this.reset();
   }
 
-  onFocusEngine(engine: Engine) {
+  onFocusMachine(machine: Machine) {
     this.reset();
-    this.focusEngine = engine;
+    this.focusMachine = machine;
   }
 
   reset() {
     this.createdMaterialMode = false;
     this.focusMaterial = null;
-    this.focusEngine = null;
-    this.createdEngineMode = false;
+    this.focusMachine = null;
+    this.createdMachineMode = false;
     this.filter = '';
-    this.editEngine = null;
+    this.editMachine = null;
     this.editMaterial = null;
 
   }
 
-  onEditEngine(e: Engine) {
+  onEditMachine(e: Machine) {
     this.onCloseMore();
-    this.createdEngineMode = true;
-    this.editEngine = e;
+    this.createdMachineMode = true;
+    this.editMachine = e;
   }
 
   onEditMaterial(e: Material) {
     this.onCloseMore();
     this.createdMaterialMode = true;
     this.editMaterial = e;
-    console.log(e)
+    console.log(e);
   }
 }

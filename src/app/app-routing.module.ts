@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 import {GetProfilComponent} from './Components/get-profil/get-profil.component';
 import {UserAuthComponent} from './Components/user-auth/user-auth.component';
 import {HomepageComponent} from './Components/homepage/homepage.component';
@@ -8,16 +8,17 @@ import {EditProjectComponent} from './Components/edit-project/edit-project.compo
 import {CollectionsComponent} from './Components/collections/collections.component';
 
 const routes: Routes = [
-  { path: 'profil/get', component: GetProfilComponent},
-  { path: 'auth', component: UserAuthComponent},
-  { path: '', component: HomepageComponent},
-  { path: 'projects', component: ProjectComponent},
-  { path: 'projects/:id', component: EditProjectComponent},
-  { path: 'collection', component: CollectionsComponent},
+  {path: 'profil/get', component: GetProfilComponent},
+  {path: 'auth', component: UserAuthComponent},
+  {path: '', component: HomepageComponent},
+  {path: 'projects', component: ProjectComponent},
+  {path: 'projects/:id', component: EditProjectComponent},
+  {path: 'collection', component: CollectionsComponent},
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

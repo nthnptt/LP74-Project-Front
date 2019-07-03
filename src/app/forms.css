@@ -13,18 +13,19 @@ button:active,
 button:hover,
 label:focus,
 .btn:active,
-.btn.active
-{
+.btn.active {
   box-shadow: none;
-  outline:0 !important;
-  -webkit-appearance:none;
+  outline: 0 !important;
+  -webkit-appearance: none;
 }
-.btn-validation{
+
+.btn-validation {
   border: none;
   padding: 10px;
   float: right;
   font-weight: bold;
 }
+
 .form .btn-validation {
   background: #3f3e4c;
   color: #46e4c1;
@@ -35,22 +36,26 @@ label:focus,
   color: #3f3e4c;
   background: #46e4c1;
 }
+
 button:disabled {
   background: grey;
-  color:white;
+  color: white;
 }
-input[type=email],input[type=password],input[type=text],.form-control {
+
+input[type=email], input[type=password], input[type=text], .form-control {
   font-size: 18px;
   border: none;
   background: none;
   border-radius: 0;
   outline-width: 0;
 }
-.form input[type=email],.form input[type=password],.form input[type=text],.form .form-control {
+
+.form input[type=email], .form input[type=password], .form input[type=text], .form .form-control {
   color: #3f3e4c;
   border-bottom: #3f3e4c solid 2px;
 }
-.form-black input[type=email], .form-black input[type=password], .form-black input[type=text],.form-black .form-control {
+
+.form-black input[type=email], .form-black input[type=password], .form-black input[type=text], .form-black .form-control {
   color: #46e4c1;
   border-bottom: #46e4c1 solid 2px;
 }
@@ -59,15 +64,17 @@ input[type=email],input[type=password],input[type=text],.form-control {
 .form-group {
   margin-bottom: 7%;
 }
+
 /*.ng-valid[required], .ng-valid.required  {*/
 /*  border-bottom-color: #42A948; !* green *!*/
 /*}*/
 
-.ng-invalid:not(form)::before  {
+.ng-invalid:not(form)::before {
   border-bottom-color: #a94442; /* red */
   content: '!';
 }
-.badge-error{
+
+.badge-error {
   position: absolute;
   left: -25px;
   bottom: 0;
@@ -80,17 +87,20 @@ input[type=email],input[type=password],input[type=text],.form-control {
   border-radius: 100%;
   background-color: #EFBCD5;
 }
-.form-group{
+
+.form-group {
   position: relative;
 }
-.badge-error:hover+.tooltip-error, .tooltip-error:hover{
+
+.badge-error:hover + .tooltip-error, .tooltip-error:hover {
   display: block;
   transform: translateX(-50%) translateY(-100%);
   transition: transform 2s;
   height: inherit;
   width: inherit;
 }
-.tooltip-error{
+
+.tooltip-error {
   position: absolute;
   display: none;
   left: 0;

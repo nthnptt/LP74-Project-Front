@@ -1,0 +1,19 @@
+<table class="table app-table">
+  <thead>
+  <tr>
+    <th *ngIf="detail">Nom</th>
+    <th *ngIf="!detail">Machine</th>
+    <th *ngIf="detail">Entrées</th>
+    <th *ngIf="detail">Sorties</th>
+    <th *ngIf="detail">Auteur</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr (click)="onClick(e, $event)" *ngFor="let e of elementFilter()" class="click">
+    <td>{{e.name}}</td>
+    <td *ngIf="detail"><i *ngFor="let inp of e.inputs">{{inp.material.name}} </i></td>
+    <td *ngIf="detail"><i *ngFor="let out of e.outputs">{{out.material.name}} </i></td>
+    <td *ngIf="detail">{{e.author}}</td>
+  </tr>
+  </tbody>
+</table>

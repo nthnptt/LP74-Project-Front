@@ -1,0 +1,46 @@
+<div [ngClass]="{'show-container': machine}" class="col-6 moreproject-container">
+  <div (click)="onClose()" class="close-modal">
+    <i class="fas fa-times"></i>
+  </div>
+  <div *ngIf="machine" class="row text-center">
+    <div class="col-12">
+      <h1>{{machine.name}}</h1>
+    </div>
+    <div class="mx-auto col-8 separator">
+      <div class="row moreinfo">
+        <div class="col-6 text-left">{{machine.author}}</div>
+        <div class="col-6 text-right">{{machine.lastUpdate}}</div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="machine" class="row entry-part">
+    <div class="col-11 mx-auto">
+      <h2>Entrée :</h2>
+    </div>
+    <div class="col-10 mx-auto">
+      <ul class="list-group list-group-flush">
+        <li *ngFor="let input of machine.inputs" class="list-group-item">{{input.needed}}x
+          - {{input.material.name}}</li>
+      </ul>
+    </div>
+  </div>
+
+  <div *ngIf="machine" class="row entry-part">
+    <div class="col-11 mx-auto">
+      <h2>Sorties :</h2>
+    </div>
+    <div class="col-10 mx-auto">
+      <ul class="list-group list-group-flush">
+        <li *ngFor="let out of machine.outputs" class="list-group-item">{{out.number}}x - {{out.material.name}}
+          <span>{{out.time}}sec</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div (click)="onDelete()" class="float-control-button float-control-delete">
+    <i class="far fa-trash-alt"></i>
+  </div>
+  <div (click)="onEdit(machine)" class="float-control-button float-control-edit">
+    <i class="fas fa-edit"></i>
+  </div>
+</div>

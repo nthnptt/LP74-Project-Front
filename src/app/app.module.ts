@@ -17,16 +17,18 @@ import {InputCreateProjectComponent} from './Components/project/input-create-pro
 import {ProjectComponent} from './Components/project/project.component';
 import {ConveyerComponent} from './Components/collections/conveyer/conveyer.component';
 import {MaterialsComponent} from './Components/collections/materials/materials.component';
-import {EngineComponent} from './Components/collections/engine/engine.component';
+import {MachineComponent} from './Components/collections/machine/machine.component';
 import {MoreProjectsComponent} from './Components/project/more-projects/more-projects.component';
 import {EditProjectComponent} from './Components/edit-project/edit-project.component';
-import { CollectionsComponent } from './Components/collections/collections.component';
-import { MoreMaterialComponent } from './Components/collections/materials/more-material/more-material.component';
-import { InputCreateMaterialComponent } from './Components/collections/materials/input-create-material/input-create-material.component';
-import { MoreEngineComponent } from './Components/collections/engine/more-engine/more-engine.component';
-import { InputCreateEngineComponent } from './Components/collections/engine/input-create-engine/input-create-engine.component';
-import { IncrementButtonComponent } from './increment-button/increment-button.component';
-import { ModalMaterialComponent } from './Components/collections/engine/input-create-engine/modal-material/modal-material.component';
+import {CollectionsComponent} from './Components/collections/collections.component';
+import {MoreMaterialComponent} from './Components/collections/materials/more-material/more-material.component';
+import {InputCreateMaterialComponent} from './Components/collections/materials/input-create-material/input-create-material.component';
+import {MoreMachineComponent} from './Components/collections/machine/more-machine/more-machine.component';
+import {InputCreateMachineComponent} from './Components/collections/machine/input-create-machine/input-create-machine.component';
+import {IncrementButtonComponent} from './increment-button/increment-button.component';
+import {ModalMaterialComponent} from './Components/collections/machine/input-create-machine/modal-material/modal-material.component';
+import {WorkspaceComponent} from './Components/edit-project/workspace/workspace.component';
+import {WorkspaceService} from './Components/edit-project/workspace/workspace.service';
 
 @NgModule({
   declarations: [
@@ -44,16 +46,17 @@ import { ModalMaterialComponent } from './Components/collections/engine/input-cr
     ProjectComponent,
     ConveyerComponent,
     MaterialsComponent,
-    EngineComponent,
+    MachineComponent,
     MoreProjectsComponent,
     EditProjectComponent,
     CollectionsComponent,
     MoreMaterialComponent,
     InputCreateMaterialComponent,
-    MoreEngineComponent,
-    InputCreateEngineComponent,
+    MoreMachineComponent,
+    InputCreateMachineComponent,
     IncrementButtonComponent,
     ModalMaterialComponent,
+    WorkspaceComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,7 +65,7 @@ import { ModalMaterialComponent } from './Components/collections/engine/input-cr
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [HttpClientModule],
+  providers: [HttpClientModule, WorkspaceService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

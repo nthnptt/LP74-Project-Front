@@ -1,8 +1,8 @@
-<div class="col-6 moreproject-container" [ngClass]="{'show-container': material}">
-  <div class="close-modal" (click)="onClose()">
+<div [ngClass]="{'show-container': material}" class="col-6 moreproject-container">
+  <div (click)="onClose()" class="close-modal">
     <i class="fas fa-times"></i>
   </div>
-  <div class="row text-center" *ngIf="material">
+  <div *ngIf="material" class="row text-center">
     <div class="col-12">
       <h1>{{material.name}}</h1>
     </div>

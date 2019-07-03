@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Conveyer} from '../../../Model/Conveyer';
 
 @Component({
@@ -9,7 +9,8 @@ import {Conveyer} from '../../../Model/Conveyer';
 export class ConveyerComponent implements OnInit {
   Convoyers: Conveyer[];
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }

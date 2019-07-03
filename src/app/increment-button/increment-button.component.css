@@ -3,21 +3,25 @@
   text-align: center;
   user-select: none;
 }
-.increment-button{
+
+.increment-button {
   position: relative;
   border-bottom: #46e4c1 solid 2px;
   width: 100%;
 }
+
 .control-btn {
   font-size: 18px;
   color: #46e4c1;
   cursor: pointer;
 }
-.btn_plus{
+
+.btn_plus {
   position: absolute;
   right: 0;
 }
-.btn_minus{
+
+.btn_minus {
   position: absolute;
   left: 0;
 }

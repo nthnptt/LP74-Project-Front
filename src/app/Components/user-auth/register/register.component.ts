@@ -1,7 +1,5 @@
-import {Component, OnInit, Input} from '@angular/core';
-import {FormGroup, FormControl} from '@angular/forms';
-import {Validators} from '@angular/forms';
-import {UserForm} from '../../../Model/UserForm';
+import {Component, Input, OnInit} from '@angular/core';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -9,7 +7,7 @@ import {UserForm} from '../../../Model/UserForm';
   styleUrls: ['./register.component.css', '../../../forms.css']
 })
 export class RegisterComponent implements OnInit {
-  @Input() focus : boolean;
+  @Input() focus: boolean;
   userform = new FormGroup({
     username: new FormControl('', [
       Validators.required,
@@ -24,22 +22,22 @@ export class RegisterComponent implements OnInit {
   constructor() {
   }
 
-  ngOnInit() {
-  }
-
-  onSubmit() {
-    const user = {
-      name : this.username.value,
-      password : this.password.value
-    };
-    console.log(user);
-  }
-
   get username() {
     return this.userform.get('username');
   }
 
   get password() {
     return this.userform.get('password');
+  }
+
+  ngOnInit() {
+  }
+
+  onSubmit() {
+    const user = {
+      name: this.username.value,
+      password: this.password.value
+    };
+    console.log(user);
   }
 }

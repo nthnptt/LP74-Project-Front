@@ -1,26 +1,28 @@
 <h1 class="h1">Connexion</h1>
-<form class="form" [formGroup]="userform" (ngSubmit)="onSubmit()">
+<form (ngSubmit)="onSubmit()" [formGroup]="userform" class="form">
   <div class="form-group">
     <label for="unamelogin">Pseudo : </label>
-    <input formControlName="username" type="text" class="form-control" id="unamelogin" aria-describedby="nameHelp" placeholder="Entrer login">
+    <input aria-describedby="nameHelp" class="form-control" formControlName="username" id="unamelogin"
+           placeholder="Entrer login"
+           type="text">
     <span *ngIf="username.invalid && (username.dirty || username.touched)" class="badge-error">
       <i class="fas fa-exclamation"></i>
     </span>
-    <div class="tooltip-error" *ngIf="username.invalid && (username.dirty || username.touched)">
+    <div *ngIf="username.invalid && (username.dirty || username.touched)" class="tooltip-error">
       <p *ngIf="username.errors.minlength">Votre pseudo doit comporter 3 caractères !</p>
       <p *ngIf="username.errors.required">Champs obligatoire !</p>
     </div>
   </div>
   <div class="form-group">
     <label for="passwordlogin">Mot de passe</label>
-    <input formControlName="password" type="password" class="form-control" id="passwordlogin" placeholder="Password">
+    <input class="form-control" formControlName="password" id="passwordlogin" placeholder="Password" type="password">
     <span *ngIf="password.invalid && (password.dirty || password.touched)" class="badge-error">
       <i class="fas fa-exclamation"></i>
     </span>
-    <div class="tooltip-error" *ngIf="password.invalid && (password.dirty || password.touched)">
+    <div *ngIf="password.invalid && (password.dirty || password.touched)" class="tooltip-error">
       <p *ngIf="password.errors.minlength">Votre pseudo doit comporter 3 caractères !</p>
       <p *ngIf="password.errors.required">Champs obligatoire !</p>
     </div>
   </div>
-  <button type="submit" class="btn-validation" [disabled]="!userform.valid || focus">Se connecter</button>
+  <button [disabled]="!userform.valid || focus" class="btn-validation" type="submit">Se connecter</button>
 </form>

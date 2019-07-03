@@ -1,28 +1,29 @@
-<div (keyup.escape)="onClose()" style="display: block" class="modal fade show input-create-modal" id="exampleModalCenter" tabindex="-1" role="dialog"
-     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div (keyup.escape)="onClose()" aria-hidden="true" aria-labelledby="exampleModalCenterTitle"
+     class="modal fade show input-create-modal" id="exampleModalCenter" role="dialog"
+     style="display: block" tabindex="-1">
   <div class="modal-dialog modal-dialog-centered modal-lg app-modal" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title" id="exampleModalLongTitle">Nouveau projet</h1>
-        <div class="close-modal" (click)="onClose()">
+        <div (click)="onClose()" class="close-modal">
           <i class="fas fa-times"></i>
         </div>
       </div>
       <div class="modal-body">
-        <form class="form-black" [formGroup]="form" (ngSubmit)="onSubmit()">
+        <form (ngSubmit)="onSubmit()" [formGroup]="form" class="form-black">
           <div class="form-group">
             <label for="unameproject">Nom du projet : </label>
-            <input formControlName="projectname" type="text" class="form-control" id="unameproject"
-                   aria-describedby="nameHelp" placeholder="Entrer un nom">
+            <input aria-describedby="nameHelp" class="form-control" formControlName="projectname" id="unameproject"
+                   placeholder="Entrer un nom" type="text">
             <span *ngIf="projectname.invalid && (projectname.dirty || projectname.touched)" class="badge-error">
             <i class="fas fa-exclamation"></i>
           </span>
-            <div class="tooltip-error" *ngIf="projectname.invalid && (projectname.dirty || projectname.touched)">
+            <div *ngIf="projectname.invalid && (projectname.dirty || projectname.touched)" class="tooltip-error">
               <p *ngIf="projectname.errors.minlength">Votre pseudo doit comporter 3 caractères !</p>
               <p *ngIf="projectname.errors.required">Champs obligatoire !</p>
             </div>
           </div>
-          <button type="submit" class="btn-validation" [disabled]="!form.valid">Création</button>
+          <button [disabled]="!form.valid" class="btn-validation" type="submit">Création</button>
         </form>
       </div>
       <div class="modal-footer">
