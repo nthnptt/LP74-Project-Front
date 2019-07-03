@@ -2,6 +2,8 @@ import {Component, EventEmitter, HostListener, OnInit, Output} from '@angular/co
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import UserSession from '../../../Model/UserSession';
 import {projectsFixtures} from '../../../Model/Fixtures';
+import {ProjectService} from "../../../Services/project.service";
+import {Project} from "../../../Model/Project";
 
 @Component({
   selector: 'app-input-create-project',
@@ -17,9 +19,10 @@ export class InputCreateProjectComponent implements OnInit {
       Validators.minLength(3)
     ]),
   });
+  private service: ProjectService;
 
   constructor() {
-
+    this.service = new ProjectService();
   }
 
   get projectname() {
@@ -35,15 +38,13 @@ export class InputCreateProjectComponent implements OnInit {
   }
 
   onSubmit() {
-    const project = {
-      id: projectsFixtures.length + 1,
-      name: this.projectname.value,
-      author: UserSession.get().getUser().name,
-      lastUpdate: 'today',
-      inputs: [],
-      outputs: [],
-    };
-    projectsFixtures.push(project);
+    const project = new Project();
+    project.name = this.projectname.value;
+    project.author = UserSession.get().getUser().name;
+    project.lastUpdate = 'today';
+    project.inputs = [];
+    project.outputs = [];
+    this.service.post(project);
     this.onClose();
   }
 }

@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Project} from '../../Model/Project';
-import {projectsFixtures} from '../../Model/Fixtures';
+import {ProjectService} from "../../Services/project.service";
 
 @Component({
   selector: 'app-project',
@@ -12,18 +12,16 @@ export class ProjectComponent implements OnInit {
   focus: Project;
   filter = '';
   createmode: boolean;
+  private service: ProjectService;
 
   constructor() {
-    this.projects = projectsFixtures;
     this.createmode = false;
     this.focus = null;
+    this.service = new ProjectService();
+    this.updateData();
   }
 
   ngOnInit() {
-  }
-
-  onDelete(p: Project) {
-    console.log('Delete :' + p);
   }
 
   onInfo(p: Project, $event) {
@@ -46,5 +44,27 @@ export class ProjectComponent implements OnInit {
         return p.name.match(this.filter + '.*');
       }
     );
+  }
+
+  private updateData() {
+    this.projects = this.service.getAll();
+
+  }
+
+  onCloseCreate() {
+    this.updateData();
+    this.createmode = false;
+  }
+
+  onDelete(p: Project){
+    this.service.delete(p);
+    this.updateData();
+    this.onCloseMore();
+  }
+
+  onEdit(p: Project) {
+    this.service.delete(p);
+    this.updateData();
+    this.onCloseMore();
   }
 }

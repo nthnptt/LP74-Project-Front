@@ -48,7 +48,7 @@ export class MachineService {
     this.save(storage);
   }
 
-  put(m: Machine){
+  put(m: Machine) {
     if (m.id) {
       const storage = JSON.parse(localStorage.getItem('machine'));
       const element = storage.data.find((e: Machine) => {
@@ -57,7 +57,7 @@ export class MachineService {
       element.name = m.name;
       element.author = m.author;
       element.lastUpdate = m.lastUpdate;
-      element.inputs= m.inputs;
+      element.inputs = m.inputs;
       element.outputs = m.outputs;
       this.save(storage);
     }
