@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit} from '@angular/core';
 import {Material} from '../../Model/Material';
 import {Engine} from '../../Model/Engine';
+import {MaterialService} from '../../Services/material.service';
 
 enum Mode {
   CONVEYER,
@@ -14,6 +15,7 @@ enum Mode {
   styleUrls: ['./collections.component.css', '../../tables.css']
 })
 export class CollectionsComponent implements OnInit {
+  @Input() needUpdate: EventEmitter<any> = new EventEmitter();
   filter = '';
   focusMaterial: Material;
   focusEngine: Engine;
@@ -74,7 +76,7 @@ export class CollectionsComponent implements OnInit {
     this.filter = '';
     this.editEngine = null;
     this.editMaterial = null;
-
+    this.needUpdate.emit();
   }
 
   onEditEngine(e: Engine) {
@@ -87,6 +89,12 @@ export class CollectionsComponent implements OnInit {
     this.onCloseMore();
     this.createdMaterialMode = true;
     this.editMaterial = e;
-    console.log(e)
+  }
+
+  onDeleteMaterial(e: Material) {
+    const service = new MaterialService();
+    service.delete(e);
+    this.onCloseMore();
+    this.reset();
   }
 }
