@@ -1,11 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {projectsFixtures} from '../../Model/Fixtures';
 import {Project} from '../../Model/Project';
 import {Machine} from '../../Model/Machine';
 import {WorkspaceService} from './workspace/workspace.service';
 import {DrawableMachine} from './workspace/drawable/DrawableMachine';
 import {OutputMat} from '../../Model/OutputMat';
+import {ProjectService} from "../../Services/project.service";
 
 const color = ['red', 'blue', 'yellow', 'black', 'white'];
 
@@ -21,14 +21,16 @@ export class EditProjectComponent implements OnInit {
   color = color;
   private project: Project;
   isLinkEditMode: boolean;
+  private projetservice: ProjectService;
 
   constructor(private route: ActivatedRoute, private service: WorkspaceService) {
     this.machines = [];
+    this.projetservice = new ProjectService();
   }
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
-    this.project = projectsFixtures[id];
+    this.project = this.projetservice.get(parseInt(id));
   }
 
   onClickProject(machine: Machine) {

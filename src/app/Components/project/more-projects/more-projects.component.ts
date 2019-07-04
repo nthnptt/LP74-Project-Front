@@ -9,6 +9,8 @@ import {Project} from '../../../Model/Project';
 export class MoreProjectsComponent implements OnInit {
   @Input() project: Project;
   @Output() close = new EventEmitter<any>();
+  @Output() delete = new EventEmitter<Project>();
+  @Output() edit = new EventEmitter<Project>();
 
   constructor() {
   }
@@ -21,11 +23,12 @@ export class MoreProjectsComponent implements OnInit {
     this.close.emit();
   }
 
-  onDelete() {
-    console.log('delete');
+  onDelete(p: Project) {
+    this.delete.emit(p);
   }
 
-  onEdit() {
-    console.log('delete');
+  onEdit(p: Project) {
+    this.delete.emit(p);
+
   }
 }

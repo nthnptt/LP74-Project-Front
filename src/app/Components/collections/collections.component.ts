@@ -1,6 +1,8 @@
-import {Component, OnInit} from '@angular/core';
 import {Material} from '../../Model/Material';
 import {Machine} from '../../Model/Machine';
+import {Component, EventEmitter, Input, OnInit} from '@angular/core';
+import {MaterialService} from "../../Services/material.service";
+import {MachineService} from "../../Services/machine.service";
 
 enum Mode {
   CONVEYER,
@@ -23,6 +25,7 @@ export class CollectionsComponent implements OnInit {
   Mode = Mode;
   editMachine: Machine;
   editMaterial: Material;
+  @Input() needUpdate: EventEmitter<any> = new EventEmitter();
 
   constructor() {
     this.mode = Mode.ENGINE;
@@ -74,6 +77,7 @@ export class CollectionsComponent implements OnInit {
     this.filter = '';
     this.editMachine = null;
     this.editMaterial = null;
+    this.needUpdate.emit();
 
   }
 
@@ -88,5 +92,20 @@ export class CollectionsComponent implements OnInit {
     this.createdMaterialMode = true;
     this.editMaterial = e;
     console.log(e);
+  }
+
+  onDeleteMaterial(e: Material) {
+    const service = new MaterialService();
+    service.delete(e);
+    this.onCloseMore();
+    this.reset();
+  }
+
+  onDeleteMachine(e: Machine) {
+    console.log(e)
+    const service = new MachineService();
+    service.delete(e);
+    this.onCloseMore();
+    this.reset();
   }
 }

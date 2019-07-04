@@ -10,6 +10,7 @@ export class MoreMachineComponent implements OnInit {
   @Input() machine: Machine;
   @Output() close = new EventEmitter<any>();
   @Output() edit = new EventEmitter<Machine>();
+  @Output() delete = new EventEmitter<Machine>();
 
   constructor() {
   }
@@ -17,7 +18,8 @@ export class MoreMachineComponent implements OnInit {
   ngOnInit() {
   }
 
-  onDelete() {
+  onDelete(e: Machine) {
+    this.delete.emit(e);
   }
 
   onEdit(e: Machine) {

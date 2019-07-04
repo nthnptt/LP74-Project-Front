@@ -29,13 +29,15 @@ export class UserAuthComponent implements OnInit {
       case Focus.LOGIN:
         this.focus = Focus.REGISTER;
         this.step = '-15%';
-
         break;
       case Focus.REGISTER:
         this.focus = Focus.LOGIN;
         this.step = '35%';
         break;
     }
+  }
 
+  onRegisterSubmit() {
+    this.moveFocus();
   }
 }

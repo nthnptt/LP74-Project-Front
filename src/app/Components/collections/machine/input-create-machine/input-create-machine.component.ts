@@ -6,6 +6,7 @@ import {Machine} from '../../../../Model/Machine';
 import {InputMat} from '../../../../Model/InputMat';
 import {OutputMat} from '../../../../Model/OutputMat';
 import {Material} from '../../../../Model/Material';
+import {MachineService} from "../../../../Services/machine.service";
 
 enum CreateMode {
   IN,
@@ -30,9 +31,11 @@ export class InputCreateMachineComponent implements OnInit, OnChanges {
   });
   isSelectedMaterial: boolean;
   createMode: CreateMode;
+  private service: MachineService;
 
   constructor() {
     this.createMode = null;
+    this.service = new MachineService();
   }
 
   get machinename() {
@@ -57,16 +60,10 @@ export class InputCreateMachineComponent implements OnInit, OnChanges {
 
   update() {
     this.machine.name = this.machinename.value;
-    const machine = machineFixtures.find((e: Machine) => {
-      return this.machine.id === e.id;
-    });
-    if (machine) {
-      machine.name = this.machine.name;
-      machine.author = this.machine.author;
-      machine.lastUpdate = 'now';
-      machine.inputs = this.machine.inputs;
-      machine.outputs = this.machine.outputs;
-    }
+    this.machine.author = UserSession.get().getUser().name;
+    this.machine.lastUpdate = 'now';
+    this.onClose();
+    this.service.put(this.machine);
   }
 
   create() {
@@ -74,7 +71,7 @@ export class InputCreateMachineComponent implements OnInit, OnChanges {
     this.machine.author = UserSession.get().getUser().name;
     this.machine.lastUpdate = 'now';
     this.onClose();
-    machineFixtures.push(this.machine);
+    this.service.post(this.machine);
   }
 
   @HostListener('document:keyup.escape')

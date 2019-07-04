@@ -39,5 +39,5 @@
   </div>
 </div>
 
-<app-input-create-project (close)="createmode=false" *ngIf="createmode"></app-input-create-project>
-<app-more-projects (close)="onCloseMore()" [project]="focus"></app-more-projects>
+<app-input-create-project (close)="onCloseCreate()" *ngIf="createmode"></app-input-create-project>
+<app-more-projects (delete)="onDelete($event)" (edit)="onEdit($event)" (close)="onCloseMore()" [project]="focus"></app-more-projects>

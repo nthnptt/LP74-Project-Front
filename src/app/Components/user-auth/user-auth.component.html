@@ -11,7 +11,7 @@
         <p *ngIf="focus==Focus.LOGIN">Pas de compte ?</p>
       </div>
     </div>
-    <app-register [focus]="focus!==Focus.REGISTER" class="col-4"></app-register>
+    <app-register (submitOK)="onRegisterSubmit()" [focus]="focus!==Focus.REGISTER" class="col-4"></app-register>
   </div>
 </div>
 

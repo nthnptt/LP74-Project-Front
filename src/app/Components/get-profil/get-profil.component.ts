@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import UserSession from '../../Model/UserSession';
 import {Router} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
+import {User} from "../../Model/User";
 
 @Component({
   selector: 'app-get-profil',
@@ -18,7 +19,9 @@ export class GetProfilComponent implements OnInit {
     // });
 
     window.setTimeout(() => {
-      UserSession.get().setUser({name: UserSession.get().getToken()});
+      const user = new User();
+      user.name = UserSession.get().getToken();
+      UserSession.get().setUser(user);
       const url = UserSession.get().getLastPathRequest();
       console.log(url);
       UserSession.get().setLastPathRequest(null);

@@ -56,17 +56,12 @@ export class WorkspaceComponent implements OnInit {
   draw() {
     this.stage.destroyChildren();
     this.layer = new Konva.Layer();
-    const e = new DrawableMachine(machineFixtures[0], {x: 200, y: 200});
-    const e2 = new DrawableMachine(machineFixtures[1]);
-    this.machines.push(e);
-    this.machines.push(e2);
     this.machines.forEach((drawable: DrawableMachine) => {
       drawable.draw(this.layer);
       drawable.addClickEvent(($event, target: DrawableMachine) => {
         this.clickLoop($event, target);
       });
     });
-    e2.link(e, this.layer);
     this.layer.clearBeforeDraw(true);
     this.stage.add(this.layer);
     this.layer.draw();

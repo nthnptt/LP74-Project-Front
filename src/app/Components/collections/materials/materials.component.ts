@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Material} from '../../../Model/Material';
 import {materialFixtures} from '../../../Model/Fixtures';
+import {MaterialService} from '../../../Services/material.service';
 
 @Component({
   selector: 'app-materials',
@@ -10,15 +11,27 @@ import {materialFixtures} from '../../../Model/Fixtures';
 export class MaterialsComponent implements OnInit {
   materials: Material[];
   @Output() focus = new EventEmitter<Material>();
+  @Input() needUpdate: EventEmitter<any>;
 
   @Input() filter = '';
   @Input() expandMode = true;
+  service: MaterialService;
 
   constructor() {
-    this.materials = materialFixtures;
+    this.service = new MaterialService();
+    this.refreshData();
+  }
+
+  refreshData() {
+    this.materials = this.service.getAll();
   }
 
   ngOnInit() {
+    if(this.needUpdate){
+      this.needUpdate.subscribe(() => {
+        this.refreshData();
+      });
+    }
   }
 
   onClick(material: Material, $event) {
