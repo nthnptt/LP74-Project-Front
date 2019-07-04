@@ -63,7 +63,6 @@ export class ProjectComponent implements OnInit {
   }
 
   onEdit(p: Project) {
-    this.service.delete(p);
     this.updateData();
     this.onCloseMore();
   }
